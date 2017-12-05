@@ -1,0 +1,35 @@
+#homepage {
+    text-align: center;
+    color: white;
+}
+
+p {
+	color: white;
+}
+
+.float {
+    float: left;
+    
+}
+
+.padding {
+    margin: 10px;
+}
+
+
+body {
+
+    background-image: url(./images/roulette.jpg);
+    background-size: 100%;
+}
+
+#suspense {
+display: block;
+margin: auto;
+}
+
+#generateflash {
+	color: white;
+	text-align: center;
+	font-size: 70px;
+}
