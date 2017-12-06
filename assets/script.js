@@ -3,7 +3,9 @@ $(document).ready(function() {
 //These search terms are here because I need to be able to access across functions.
   var restaurantName = " ";
   var restaurantLink = " ";
-  var restaurantPic = " ";               
+  var restaurantPic = " "; 
+  var randomActivity = " ";  
+ // var restaurantMethod =" ";            
  
     $("#letsgo").on("click", function(event) {
   
@@ -65,6 +67,7 @@ $(document).ready(function() {
             $("#generateflash").fadeOut(500);
             $("#generateflash").fadeIn(500);
         }
+
     }
 
    
@@ -73,7 +76,7 @@ $(document).ready(function() {
         
         $("#dynamicdiv").empty();
         var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input>");
-        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input>");
+        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios2' value='option2'> No </input>");
         var submit =("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit3'>Submit</button>"); 
         var formCuisine =$("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/#.JPEG' alt='Photo of china'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/#.JPEG' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/#.JPEG' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/#.PNG' alt='Photo of New Mexico'>");  
 
@@ -100,6 +103,8 @@ $(document).ready(function() {
 //         $(stage4div).append(submit);
         
         makeitflash();
+        setTimeout(stage5Out, 5000);
+
     }
 
 
@@ -128,12 +133,14 @@ $(document).ready(function() {
     ];
 
     
+
     //This is the function generating the outside experience after userInput.  This function is triggered by a click event that appears in stage 3.
 		
   $(document).on("click", "#submit2", function nextPhaseOutside5(){
      
       generateOutside();
       stage4()
+      
     
   });   
 
@@ -143,6 +150,7 @@ $(document).ready(function() {
     
       generateInside();
       stage4()
+      
    
   }); 
 
@@ -213,9 +221,19 @@ $(document).ready(function() {
       	          restaurantLink.attr("href", results.restaurants[random].url).append("Website");
       	       
       	});
- }
+
+        function generateOutsideActivity(){
+
+             
+             randomActivity = Math.floor(Math.random()*(outsideActivityArray.length));
+             console.log(randomActivity);
+
+        }
+      
+        generateOutsideActivity();
+  }
   
-    function generateInside(){
+  function generateInside(){
  // # EDAMAM API 
 
 //Let's stay in and cook! 
@@ -299,10 +317,73 @@ console.log(res);
 
 }); // closes done
 
+      function generateInsideActivity(){
+
+             
+             var randomActivity = Math.floor(Math.random()*(insideActivityArray.length));
+             console.log(randomActivity);
+       }
+       generateInsideActivity();
   
     }
  
-  
+function stage5Out() {
+        $("#dynamicdiv").empty();
+        var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
+        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button>");
+        var row3= $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
+       
+
+        $("#dynamicdiv").append(row1);
+        $("#dynamicdiv").append(row2);
+        $("#dynamicdiv").append(row3);
+
+        //NEED TO WORK ON THIS!
+        var text = $("<p id='stage5P'>We have a fun evening planned for you!</p><p>First, you will got to' + restaurantName + 'and because you can't sit still, you will take your food' + restaurantMethod</p>");
+        // var rest= 
+        //  var meth=
+        //  var activity=
+
+        $("#stage5div1").append(text);
+
+       // Following Code creates the table
+
+
+       var table = $("<table class='table'><thead><tr><th>Restaurant & website</th><th>Activity</th><tbody><tr><td class='main' id='original'></td><td class='main' id='original4'></td><tr><td></td><td></td><tr><td></td><td></td>")
+
+       //the following code is what puts the main variables in the table.  
+
+       activityPic = $("<img id='activityImg'>")
+                  activityPic.addClass("image");
+                  activityPic.attr("src", outsideActivityArray[randomActivity].url);
+       activityName =$("<p id='resultName'>").text(outsideActivityArray[randomActivity].name);
+
+        $("#stage5div3").append(table);
+        $("#original").append(restaurantName);
+        $("#original").append(restaurantPic);
+        $("#original").append(restaurantLink);
+        $("#original4").append(activityName);
+        $("#original4").append(activityPic);
+
+             
+                 
+        
+
+      
+      
+
+        
+      //This code places he items in the table and puts the dynamic table element on the page
+      $(document).on("click", "#submit5", function addLocalStorageDisplayTable() {
+
+       //   $("#stage5div3").append(table);
+          
+         
+
+
+      });
+        
+}  
   
   function stage6() {
 	// look at materialize carousel for scrolling through saved experiences
