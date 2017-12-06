@@ -104,40 +104,30 @@ $(document).ready(function() {
 
 
     var insideActivityArray = [
-        { "name": "binge", "url": "assets/images/binge.jpg" },
-        { "name": "bubble", "url": "assets/images/bubble.jpg" },
-        { "name": "cards", "url": "assets/images/cards.jpg" },
-        { "name": "firepit", "url": "assets/images/firepit.jpg" },
-        { "name": "friends", "url": "assets/images/friends.jpg" },
-        { "name": "games", "url": "assets/images/games.jpg" },
-        { "name": "limbo", "url": "assets/images/limbo.jpg" },
-        { "name": "netflix", "url": "assets/images/netflix.jpg" },
-        { "name": "video", "url": "assets/images/video.jpg" }
+        { "name": "Binge Watch", "url": "assets/images/binge.jpg", "desc": "binge watch your favorite TV program." },
+        { "name": "Bubble Bath", "url": "assets/images/bubble.jpg", "desc": "take a relaxing bubble bath." },
+        { "name": "Cards", "url": "assets/images/cards.jpg", "desc": "play your favorite game of cards." },
+        { "name": "Firepit", "url": "assets/images/firepit.jpg", "desc": "make a fire and roast marshmallows." },
+        { "name": "Friends", "url": "assets/images/friends.jpg", "desc": "have friends over for drinks." },
+        { "name": "Board Games", "url": "assets/images/games.jpg", "desc": "play your favorite board game." },
+        { "name": "Limbo", "url": "assets/images/limbo.jpg", "desc": "do the limbo." },
+        { "name": "Netflix", "url": "assets/images/netflix.jpg", "desc": "watch a movie on Netflix." },
+        { "name": "Video Games", "url": "assets/images/video.jpg", "desc": "play your favorite video game." }
     ];
 
     var outsideActivityArray = [
-        { "name": "band", "url": "assets/images/band.jpg" },
-        { "name": "bowling", "url": "assets/images/bowling.jpg" },
-        { "name": "dancing", "url": "assets/images/dancing.jpg" },
-        { "name": "elevator", "url": "assets/images/elevator.jpg" },
-        { "name": "gunrange", "url": "assets/images/gunrange.jpg" },
-        { "name": "minigolf", "url": "assets/images/minigolf.jpg" },
-        { "name": "movie", "url": "assets/images/movie.jpg" },
-        { "name": "rockwall", "url": "assets/images/rockwall.jpg" },
-        { "name": "sports", "url": "assets/images/sports.jpg" }
+        { "name": "Band", "url": "assets/images/band.jpg", "desc": "watch a band at a local restarant/bar." },
+        { "name": "Bowling", "url": "assets/images/bowling.jpg", "desc": "go bowling." },
+        { "name": "Dancing", "url": "assets/images/dancing.jpg", "desc": "dance the night away." },
+        { "name": "Elevator Fun", "url": "assets/images/elevator.jpg", "desc": "find the nearest building with an elevator, push all the buttons and RUN!" },
+        { "name": "Gun Range", "url": "assets/images/gunrange.jpg", "desc": "test your skills at a gun range." },
+        { "name": "Mini Golf", "url": "assets/images/minigolf.jpg", "desc": "play a round of mini golf." },
+        { "name": "Movie", "url": "assets/images/movie.jpg", "desc": "go to the movies." },
+        { "name": "Rock Wall", "url": "assets/images/rockwall.jpg", "desc": "go climb an indoor rock wall." },
+        { "name": "Sports", "url": "assets/images/sports.jpg", "desc": "go and cheer on your local sports team." }
     ];
 
-    function stage5() {
-        $("#dynamicdiv").empty();
-
-        // test to make sure all images load
-        // for (var i = 0; i < insideActivityArray.length; i++) {
-            // var activity = $("<img>").attr("src", insideActivityArray[i].url);
-            // $("#dynamicdiv").append(activity);
-        // }
-    }
-
- 
+    
     //This is the function generating the outside experience after userInput.  This function is triggered by a click event that appears in stage 3.
 		
   $(document).on("click", "#submit2", function nextPhaseOutside5(){
