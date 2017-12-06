@@ -7,6 +7,33 @@ p {
 	color: white;
 }
 
+.stage3P {
+    color: white;
+    font-size: 30px;
+}
+
+#stage5P{
+    color: white;
+    font-size: 30px;
+}
+.cities{
+    border-radius: 75%;
+    opacity: 0.7;
+    float: left;
+    color: white;
+    width: 100px;
+    height: 100px;
+
+}
+
+#restaurantImg {
+    border-radius: 75%;
+    opacity: 0.7;
+    color: white;
+    width: 100px;
+    height: 100px;
+}
+
 .float {
     float: left;
     
@@ -21,7 +48,73 @@ body {
 
     background-image: url(./images/roulette.jpg);
     background-size: 100%;
+
+/*     background-color: black; */
+    color: white;
 }
+
+
+#container6 {
+    background-size: 100%;
+    color: white;
+    background-color: rgb(184,184,184);
+    margin-top: 30px;
+    border-radius: 50px;
+   
+
+}
+#container5 {
+    background-size: 100%;
+    color: white;
+    background-color: rgb(184,184,184);
+    border-radius: 0px 0px 50px 50px;
+     
+
+}
+
+#container4 {
+    background-size: 100%;
+    color: white;
+    background-color: rgb(184,184,184);
+    border-radius: 50px 50px 0px 0px;
+    margin-top: 15px;
+    padding-top:  10px;
+   
+
+}
+
+#container3 {
+    background-size: 100%;
+    color: white;
+    background-color: rgb(184,184,184);
+    border-radius: 0px 0px 100px 100px;
+   
+
+}
+
+
+#container2 {
+    background-size: 100%;
+    color: white;
+    background-color: rgb(184,184,184);
+    
+}
+
+#container1 {
+    background-size: 100%;
+    color: white;
+    margin-top: 10px;
+    background-color: rgb(184,184,184);
+    border-radius: 100px 100px 0px 0px;
+    padding-top: 20px;
+
+}
+
+.BoxIndex {
+ 
+    margin-left: 50px;
+}
+
 
 #suspense {
 display: block;
@@ -33,3 +126,21 @@ margin: auto;
 	text-align: center;
 	font-size: 70px;
 }
+
+label {
+ display: inline-flex;
+ align-items: stretch;
+ 
+}
+
+#method {
+ 
+    margin-left: 25px;
+}
+
+#resultName {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
