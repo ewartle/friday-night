@@ -130,14 +130,81 @@ $("#restaurants-view").append(restaurantPic);
 //3. On a diet?
 
 
+// //lazy
+// //adventurous
 
 
 americanFood = [];
 lazy = [];
 diet = [];
 
+$("#submit3").on("click", function(event) {
 
-queryUrl = "https://api.edamam.com/search?q=" + foodChoice +  "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+event.preventDefault();
+ 
+// Question 1.
+var questionOne = $("input[name=gridRadios]:checked").val();
+
+if ( questionOne === "option1" ) {
+console.log ("NYC");
+var cityChoice = "pizza";
+(americanFood).push(cityChoice);
+          
+}
+        
+if (questionOne ==="option2") {
+console.log ("NO");
+var cityChoice = "gumbo";
+(americanFood).push(cityChoice);
+}
+         
+if (questionOne==="option3") {
+console.log ("NE");
+var cityChoice = "new england clam chowder";
+(americanFood).push(cityChoice);
+            
+}
+if (questionOne==="option4") {
+console.log("NM")        
+var cityChoice = "tacos";
+(americanFood).push(cityChoice);
+}
+
+// Question 2.
+var questionTwo = $("input[name=gridRadiosNew]:checked").val();
+
+if (questionTwo==="option1") {
+console.log ("lazy");
+var lazyChoice = "&ingr=9";
+(lazy).push(lazyChoice);
+          
+}
+
+if (questionTwo==="option2") {
+console.log ("adventurous");
+var lazyChoice = "&ingr=50";
+(lazy).push(lazyChoice);
+}
+        
+// Question 3.
+var questionThree = $("input[name=gridRadiosNew2]:checked").val();
+
+if (questionThree==="option1") {
+console.log ("diet");
+var onaDiet = "&calories=lte%300";
+(diet).push(onaDiet);
+          
+}
+
+if (questionThree==="option2") {
+console.log ("not on a diet");
+var onaDiet = "&calories=gte%800";
+(diet).push(onaDiet);
+}
+       
+
+
+queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
 
 
 
@@ -147,9 +214,26 @@ $.ajax ({
 
 }).done(function(res) {
 
+
+
+
+
 console.log(res);
 
 }); // closes done
+
+
+
+
+
+
+
+
+}); // Closes click handler. 
+
+
+
+
 
 
 
