@@ -72,8 +72,8 @@ $(document).ready(function() {
   $(document).on("click", "#inside", function(event) {
         
         $("#dynamicdiv").empty();
-        var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input><img id='feeling' src='assets/images/adventurous.jpg' alt='chef preparing a meal'" );
-        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input><img id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
+        var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input><img class='cities' id='feeling' src='assets/images/adventurous.jpg' alt='chef preparing a meal'" );
+        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input><img class='cities' id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
         var submit =("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit3'>Submit</button>"); 
         var formCuisine =$("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/nola.jpg' alt='Photo of New Orleans'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/nyc.jpg' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/new-england.jpg' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/new-mexico.jpg' alt='Photo of New Mexico'>");  
 
@@ -226,32 +226,23 @@ $(document).ready(function() {
  }
   
     function generateInside(){
- // # EDAMAM API 
 
-//Let's stay in and cook! 
-//1. Where would you rather go on a vacation? -----> New Orleans, NYC, New England, New Mexico
-//2. Feeling lazy or feeling adventurous?
-//3. On a diet?
-
-// //lazy
-// //adventurous
-
-americanFood = [];
-lazy = [];
-diet = [];
+      americanFood = [];
+      lazy = [];
+      diet = [];
  
 // Question 1.
 var questionOne = $("input[name=gridRadios]:checked").val();
 
 if ( questionOne === "option1" ) {
-console.log ("NYC");
-var cityChoice = "pizza";
+console.log ("NO");
+var cityChoice = "gumbo";
 (americanFood).push(cityChoice);
 }
         
 if (questionOne ==="option2") {
-console.log ("NO");
-var cityChoice = "gumbo";
+console.log ("NYC");
+var cityChoice = "pizza";
 (americanFood).push(cityChoice);
 }
          
@@ -283,17 +274,17 @@ var lazyChoice = "&ingr=22";
 }
         
 // Question 3.
-var questionThree = $("input[name=gridRadios2]:checked").val();
+var questionThree = $("input[name=gridRadiosNew2]:checked").val();
 
 if (questionThree==="option1") {
 console.log ("diet");
-var onaDiet = "&calories=lte%300";
+var onaDiet = "&calories=lte300";
 (diet).push(onaDiet);
 }
 
 if (questionThree==="option2") {
 console.log ("not on a diet");
-var onaDiet = "&calories=gte%800";
+var onaDiet = "&calories=gte800";
 (diet).push(onaDiet);
 }
 
@@ -308,19 +299,23 @@ $.ajax ({
 
 }).done(function(res) {
 
-console.log(res);
 
+var random = Math.floor(Math.random()*(res.hits.length))
+//console.log(res.hits[random]);
+console.log(res.hits[random].recipe.label);
+console.log(res.hits[random].recipe.image);
+console.log(res.hits[random].recipe.uri)
 
+recipeName = $("<p id='recipeName'>").text(res.hits[random].recipe.label);
+recipePic = $("<img id='recipeImg'>") 
+  recipePic.addClass("image");
+  recipePic.attr("src", res.hits[random].recipe.image);
+recipeLink = $("<a>");
+recipeLink.attr("href", res.hits[random].recipe.uri).append("Website");
 
 
 
 }); // closes done
-
-/* recipeName = $("<p id='recipeName'>").text(res.recipe.label);
-recipePic = $("<img id='restaurantImg'>") restaurantPic.addClass("image");
-recipePic.attr("src", res.recipe.image);
-recipeLink = $("<a>");
-recipeLink.attr("href", res.recipe.uri).append("Website"); */
 
 
 
