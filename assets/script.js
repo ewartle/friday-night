@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-makeitflash();
+    makeitflash();
 
 
     $("#letsgo").on("click", function(event) {
 
-        stage2();
+        stage4();
 
     })
 
@@ -57,8 +57,10 @@ makeitflash();
 
 
     function makeitflash() {
-        $("#generateflash").fadeOut(500);
-        $("#generateflash").fadeIn(500);
+        for (var i = 0; i < 5; i++) {
+            $("#generateflash").fadeOut(500);
+            $("#generateflash").fadeIn(500);
+        }
     }
 
     function stage4() {
@@ -72,12 +74,49 @@ makeitflash();
         $(generateLogo).text("Generating Experience");
         $(stage4div).append(generateLogo);
         makeitflash();
+
+
     }
 
- 
+
+    var insideActivityArray = [
+        { "name": "binge", "url": "assets/images/binge.jpg" },
+        { "name": "bubble", "url": "assets/images/bubble.jpg" },
+        { "name": "cards", "url": "assets/images/cards.jpg" },
+        { "name": "firepit", "url": "assets/images/firepit.jpg" },
+        { "name": "friends", "url": "assets/images/friends.jpg" },
+        { "name": "games", "url": "assets/images/games.jpg" },
+        { "name": "limbo", "url": "assets/images/limbo.jpg" },
+        { "name": "netflix", "url": "assets/images/netflix.jpg" },
+        { "name": "video", "url": "assets/images/video.jpg" }
+    ];
+
+    var outsideActivityArray = [
+        { "name": "band", "url": "assets/images/band.jpg" },
+        { "name": "bowling", "url": "assets/images/bowling.jpg" },
+        { "name": "dancing", "url": "assets/images/dancing.jpg" },
+        { "name": "elevator", "url": "assets/images/elevator.jpg" },
+        { "name": "gunrange", "url": "assets/images/gunrange.jpg" },
+        { "name": "minigolf", "url": "assets/images/minigolf.jpg" },
+        { "name": "movie", "url": "assets/images/movie.jpg" },
+        { "name": "rockwall", "url": "assets/images/rockwall.jpg" },
+        { "name": "sports", "url": "assets/images/sports.jpg" }
+    ];
+
+    function stage5() {
+        $("#dynamicdiv").empty();
+
+        // test to make sure all images load
+        // for (var i = 0; i < insideActivityArray.length; i++) {
+            // var activity = $("<img>").attr("src", insideActivityArray[i].url);
+            // $("#dynamicdiv").append(activity);
+        // }
+    }
 
 
-
+function stage6() {
+	// look at materialize carousel for scrolling through saved experiences
+}
 
 
 
