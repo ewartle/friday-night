@@ -7,7 +7,6 @@ p {
 	color: white;
 }
 
-
 .stage3P {
     color: white;
     font-size: 30px;
@@ -49,7 +48,8 @@ body {
 
     background-image: url(./images/roulette.jpg);
     background-size: 100%;
-    background-color: black;
+
+/*     background-color: black; */
     color: white;
 }
 
@@ -125,12 +125,6 @@ margin: auto;
 	color: white;
 	text-align: center;
 	font-size: 70px;
-}
-
-img {
-    height:  100px;
-    width: 100px;
-
 }
 
 label {

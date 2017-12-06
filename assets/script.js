@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-makeitflash();
-
-
 //These search terms are here because I need to be able to access across functions.
   var restaurantName = " ";
   var restaurantLink = " ";
@@ -11,11 +8,9 @@ makeitflash();
   $("#letsgo").on("click", function(event) {
 
        stage2();
+    })
 
-  })
-
-
-  function stage2() {
+    function stage2() {
         $("#dynamicdiv").empty();
 
         var column = $("<div class='col-md-12' id='stage2div'>");
@@ -26,8 +21,7 @@ makeitflash();
         var outside = {
             name: "out",
             image: "assets/images/beach.jpg"
-
-        }
+        };
         var inside = {
             name: "in",
             image: "assets/images/fire.jpg",
@@ -50,7 +44,8 @@ makeitflash();
         $("#stage2div").append(or);
         $("#stage2div").append(insideDiv);
 
-  }
+    }
+     
 
   //This is the function to dynamically create elements for stageThreeOutside
   $(document).on("click", "#outside", function(event) {
@@ -65,10 +60,9 @@ makeitflash();
                     $("#dynamicdiv").append(formCuisine);   
                     $("#dynamicdiv").append(formMethod);   
                     $("#dynamicdiv").append(submit);
-                    
-                   
   });
 
+   
  //This is the function to dynamically create elements for stageThreeOutside
   $(document).on("click", "#inside", function(event) {
         
@@ -102,8 +96,8 @@ makeitflash();
         $(stage4div).append(generateLogo);
         
         //I added below to see if we could trigger the final phase.  We will need to think of a way to trigger
-        var submit =("<div class=BoxIndex><div class='form-group row'><div class='col-sm-10'><button type='submit' class='btn btn-primary' id='submit4'>Submit</button>"); 
-        $(stage4div).append(submit);
+//         var submit =("<div class=BoxIndex><div class='form-group row'><div class='col-sm-10'><button type='submit' class='btn btn-primary' id='submit4'>Submit</button>"); 
+//         $(stage4div).append(submit);
         
         makeitflash();
   }
@@ -127,14 +121,7 @@ makeitflash();
    
   }); 
 
-  function generateInside(){
-
-//Add Steven's stuff here//
-
-  }     
-
-    
-
+ 
   function generateOutside(){
         
           var cuisineChoice = [];
@@ -196,7 +183,7 @@ makeitflash();
              console.log(results);
              var i=results.restaurants.length;
              var random = Math.floor(Math.random()*(i))
-                                  
+     
 
       	      restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
               restaurantPic = $("<img id='restaurantImg'>")
@@ -204,81 +191,8 @@ makeitflash();
                   restaurantPic.attr("src", results.restaurants[random].logoUrl);
       	      restaurantLink = $("<a>");
       	          restaurantLink.attr("href", results.restaurants[random].url).append("Website");
-      	      
- 
+      	       
       	});
  }
-
-
-
-$(document).on("click", "#submit4", function stage5Outside() {
-
-    stage5Out();
-    
- });
-
-function stage5Out() {
-        $("#dynamicdiv").empty();
-        var row1 = $("<div class = 'container' id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        var row2 = $("<div class = 'container' id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button>");
-        var row3= $("<div class = 'container' id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
-       
-
-        $("#dynamicdiv").append(row1);
-        $("#dynamicdiv").append(row2);
-        $("#dynamicdiv").append(row3);
-
-        //NEED TO WORK ON THIS!
-        var text = $("<p id='stage5P'>We have a fun evening planned for you!</p><p>First, you will got to' + restaurantName + 'and because you can't sit still, you will take your food' + restaurantMethod</p>");
-        // var rest= 
-        //  var meth=
-        //  var activity=
-
-        $("#stage5div1").append(text);
-
-       // Following Code creates the table
-
-
-       var table = $("<table class='table'><thead><tr><th>Restaurant & website</th><th>Cuisine</th><th>Dine In or Carry Out</th><th>Activity</th><tbody><tr><td class='main' id='original'></td><tdclass='main' id='original2'></td><td class='main' id='original3'></td><tdclass='main' id='original4'></td><tr><td></td><td></td><td></td><td></td><tr><td></td><td></td><td></td><td></td>")
-
-       //the following code is what puts the main variables in the table.  
-
-
-      
-
-        $("#stage5div3").append(table);
-        $("#original").append(restaurantName);
-        $("#original").append(restaurantPic);
-        $("#original").append(restaurantLink);
-        $("#original2").append();
-
-             
-                 
-        
-
-      
-      
-
-        
-      //This code places he items in the table and puts the dynamic table element on the page
-      $(document).on("click", "#submit5", function addLocalStorageDisplayTable() {
-
-       //   $("#stage5div3").append(table);
-          
-         
-
-
-      });
-        
-}
-
-//We will need to put Steve's stuff here
-function stage5Inside() {
-
-
-
-
-}
-
 
 }); // closes document ready
