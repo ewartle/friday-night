@@ -1,13 +1,18 @@
 $(document).ready(function() {
 
+
 //These search terms are here because I need to be able to access across functions.
   var restaurantName = " ";
   var restaurantLink = " ";
   var restaurantPic = " ";               
 
-  $("#letsgo").on("click", function(event) {
 
+ 
+    $("#letsgo").on("click", function(event) {
+
+   
        stage2();
+
     })
 
     function stage2() {
@@ -62,6 +67,14 @@ $(document).ready(function() {
                     $("#dynamicdiv").append(submit);
   });
 
+
+    function makeitflash() {
+        for (var i = 0; i < 5; i++) {
+            $("#generateflash").fadeOut(500);
+            $("#generateflash").fadeIn(500);
+        }
+    }
+
    
  //This is the function to dynamically create elements for stageThreeOutside
   $(document).on("click", "#inside", function(event) {
@@ -79,10 +92,7 @@ $(document).ready(function() {
   });
 
 
-  function makeitflash() {
-        $("#generateflash").fadeOut(500);
-        $("#generateflash").fadeIn(500);
-  }
+  
 
   function stage4() {
         $("#dynamicdiv").empty();
@@ -100,7 +110,47 @@ $(document).ready(function() {
 //         $(stage4div).append(submit);
         
         makeitflash();
-  }
+
+
+
+    }
+
+
+    var insideActivityArray = [
+        { "name": "binge", "url": "assets/images/binge.jpg" },
+        { "name": "bubble", "url": "assets/images/bubble.jpg" },
+        { "name": "cards", "url": "assets/images/cards.jpg" },
+        { "name": "firepit", "url": "assets/images/firepit.jpg" },
+        { "name": "friends", "url": "assets/images/friends.jpg" },
+        { "name": "games", "url": "assets/images/games.jpg" },
+        { "name": "limbo", "url": "assets/images/limbo.jpg" },
+        { "name": "netflix", "url": "assets/images/netflix.jpg" },
+        { "name": "video", "url": "assets/images/video.jpg" }
+    ];
+
+    var outsideActivityArray = [
+        { "name": "band", "url": "assets/images/band.jpg" },
+        { "name": "bowling", "url": "assets/images/bowling.jpg" },
+        { "name": "dancing", "url": "assets/images/dancing.jpg" },
+        { "name": "elevator", "url": "assets/images/elevator.jpg" },
+        { "name": "gunrange", "url": "assets/images/gunrange.jpg" },
+        { "name": "minigolf", "url": "assets/images/minigolf.jpg" },
+        { "name": "movie", "url": "assets/images/movie.jpg" },
+        { "name": "rockwall", "url": "assets/images/rockwall.jpg" },
+        { "name": "sports", "url": "assets/images/sports.jpg" }
+    ];
+
+    function stage5() {
+        $("#dynamicdiv").empty();
+
+        // test to make sure all images load
+        // for (var i = 0; i < insideActivityArray.length; i++) {
+            // var activity = $("<img>").attr("src", insideActivityArray[i].url);
+            // $("#dynamicdiv").append(activity);
+        // }
+    }
+
+
 
  
     //This is the function generating the outside experience after userInput.  This function is triggered by a click event that appears in stage 3.
@@ -154,9 +204,11 @@ $(document).ready(function() {
         }
         
 
+
       
         var queryTerm2 = $("input[name=gridRadiosNew]:checked").val();
         console.log(queryTerm2);
+
 
          if (queryTerm2==="option1") {
          
@@ -164,6 +216,7 @@ $(document).ready(function() {
           (cuisineMethod).push(cuisineMeth);
           
         }
+
 
         if (queryTerm2==="option2") {
           
@@ -194,5 +247,9 @@ $(document).ready(function() {
       	       
       	});
  }
+  
+  function stage6() {
+	// look at materialize carousel for scrolling through saved experiences
+}
 
 }); // closes document ready
