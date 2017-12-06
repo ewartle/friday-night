@@ -1,18 +1,13 @@
 $(document).ready(function() {
 
-
 //These search terms are here because I need to be able to access across functions.
   var restaurantName = " ";
   var restaurantLink = " ";
   var restaurantPic = " ";               
-
-
  
     $("#letsgo").on("click", function(event) {
-
-   
+  
        stage2();
-
     })
 
     function stage2() {
@@ -48,7 +43,6 @@ $(document).ready(function() {
         $("#stage2div").append(outsideDiv);
         $("#stage2div").append(or);
         $("#stage2div").append(insideDiv);
-
     }
      
 
@@ -61,12 +55,10 @@ $(document).ready(function() {
         var submit = $("<div class = 'container' id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-sm-10'><button type='submit' class='btn btn-primary' id='submit2'>Submit</button>"); 
         var formCuisine =$("<div class = 'container' id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> What country do you want to visit? </p><div class='col-sm-10><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>China</input><img class= 'cities' id='China' src= 'assets/images/China.JPEG' alt='Photo of china'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>Italy</input> <img class= 'cities' id='Italy' src= 'assets/images/italy.JPEG' alt='Photo of italy'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'>India </input><img class= 'cities' id='India' src= 'assets/images/india.JPEG' alt='Photo of india'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>Anywhere in the world </input><img class= 'cities' id='anywhere' src= 'assets/images/globe.PNG' alt='Photo of globe'>");  
  
-
                     $("#dynamicdiv").append(formCuisine);   
                     $("#dynamicdiv").append(formMethod);   
                     $("#dynamicdiv").append(submit);
   });
-
 
     function makeitflash() {
         for (var i = 0; i < 5; i++) {
@@ -92,8 +84,6 @@ $(document).ready(function() {
   });
 
 
-  
-
   function stage4() {
         $("#dynamicdiv").empty();
         var column = $("<div class='col-md-12' id='stage4div'>");
@@ -110,9 +100,6 @@ $(document).ready(function() {
 //         $(stage4div).append(submit);
         
         makeitflash();
-
-
-
     }
 
 
@@ -150,13 +137,11 @@ $(document).ready(function() {
         // }
     }
 
-
-
  
     //This is the function generating the outside experience after userInput.  This function is triggered by a click event that appears in stage 3.
 		
   $(document).on("click", "#submit2", function nextPhaseOutside5(){
-    
+     
       generateOutside();
       stage4()
     
@@ -165,7 +150,7 @@ $(document).ready(function() {
   //This is the function generating the inside experience after userInput.  This function is triggered by a click event that appears in stage 3.   
           
   $(document).on("click", "#submit3", function nextPhaseInside5(){
-   
+    
       generateInside();
       stage4()
    
@@ -178,7 +163,6 @@ $(document).ready(function() {
           var cuisineMethod = [];
 
           var queryTerm = $("input[name=gridRadios]:checked").val();
-          
 
         if (queryTerm==="option1") {
           
@@ -203,27 +187,21 @@ $(document).ready(function() {
           (cuisineChoice).push(cuisineUser);
         }
         
-
-
       
         var queryTerm2 = $("input[name=gridRadiosNew]:checked").val();
         console.log(queryTerm2);
-
 
          if (queryTerm2==="option1") {
          
           var cuisineMeth = "pickup";
           (cuisineMethod).push(cuisineMeth);
-          
-        }
-
+         }
 
         if (queryTerm2==="option2") {
           
           var cuisineMeth = ("both");
           (cuisineMethod).push(cuisineMeth);
         }
-
 
           var queryURL = "https://api.eatstreet.com/publicapi/v1/restaurant/search?method=" + cuisineMethod[0] + "&search=" + cuisineChoice[0] + "&street-address=atlanta&access-token=f758c64bc1106d0d"  
                   
@@ -237,7 +215,6 @@ $(document).ready(function() {
              var i=results.restaurants.length;
              var random = Math.floor(Math.random()*(i))
      
-
       	      restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
               restaurantPic = $("<img id='restaurantImg'>")
                   restaurantPic.addClass("image");
@@ -248,8 +225,98 @@ $(document).ready(function() {
       	});
  }
   
+    function generateInside(){
+ // # EDAMAM API 
+
+//Let's stay in and cook! 
+//1. Where would you rather go on a vacation? -----> New Orleans, NYC, New England, New Mexico
+//2. Feeling lazy or feeling adventurous?
+//3. On a diet?
+
+// //lazy
+// //adventurous
+
+americanFood = [];
+lazy = [];
+diet = [];
+ 
+// Question 1.
+var questionOne = $("input[name=gridRadios]:checked").val();
+
+if ( questionOne === "option1" ) {
+console.log ("NYC");
+var cityChoice = "pizza";
+(americanFood).push(cityChoice);
+}
+        
+if (questionOne ==="option2") {
+console.log ("NO");
+var cityChoice = "gumbo";
+(americanFood).push(cityChoice);
+}
+         
+if (questionOne==="option3") {
+console.log ("NE");
+var cityChoice = "new england clam chowder";
+(americanFood).push(cityChoice);
+}
+      
+if (questionOne==="option4") {
+console.log("NM")        
+var cityChoice = "tacos";
+(americanFood).push(cityChoice);
+}
+
+// Question 2.
+var questionTwo = $("input[name=gridRadiosNew]:checked").val();
+
+if (questionTwo==="option1") {
+console.log ("lazy");
+var lazyChoice = "&ingr=9";
+(lazy).push(lazyChoice);
+}
+
+if (questionTwo==="option2") {
+console.log ("adventurous");
+var lazyChoice = "&ingr=50";
+(lazy).push(lazyChoice);
+}
+        
+// Question 3.
+var questionThree = $("input[name=gridRadiosNew2]:checked").val();
+
+if (questionThree==="option1") {
+console.log ("diet");
+var onaDiet = "&calories=lte%300";
+(diet).push(onaDiet);
+}
+
+if (questionThree==="option2") {
+console.log ("not on a diet");
+var onaDiet = "&calories=gte%800";
+(diet).push(onaDiet);
+}
+
+queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+
+$.ajax ({
+ url: queryUrl,
+ method: "GET"
+
+}).done(function(res) {
+
+console.log(res);
+
+}); // closes done
+
+  
+    }
+ 
+  
+  
   function stage6() {
 	// look at materialize carousel for scrolling through saved experiences
 }
+
 
 }); // closes document ready
