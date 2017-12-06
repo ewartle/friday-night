@@ -16,6 +16,13 @@ p {
     color: white;
     font-size: 30px;
 }
+
+.image{
+
+    width: 150px;
+    height: 150px;
+    border-radius: 75%;
+}
 .cities{
     border-radius: 75%;
     opacity: 0.7;
@@ -57,7 +64,7 @@ body {
 #container6 {
     background-size: 100%;
     color: white;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     margin-top: 30px;
     border-radius: 50px;
    
@@ -66,7 +73,7 @@ body {
 #container5 {
     background-size: 100%;
     color: white;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     border-radius: 0px 0px 50px 50px;
      
 
@@ -75,7 +82,7 @@ body {
 #container4 {
     background-size: 100%;
     color: white;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     border-radius: 50px 50px 0px 0px;
     margin-top: 15px;
     padding-top:  10px;
@@ -86,7 +93,7 @@ body {
 #container3 {
     background-size: 100%;
     color: white;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     border-radius: 0px 0px 100px 100px;
    
 
@@ -96,7 +103,7 @@ body {
 #container2 {
     background-size: 100%;
     color: white;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     
 }
 
@@ -104,7 +111,7 @@ body {
     background-size: 100%;
     color: white;
     margin-top: 10px;
-    background-color: rgb(184,184,184);
+    background-color: rgba(184,184,184,.5);
     border-radius: 100px 100px 0px 0px;
     padding-top: 20px;
 
