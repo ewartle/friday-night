@@ -72,10 +72,10 @@ $(document).ready(function() {
   $(document).on("click", "#inside", function(event) {
         
         $("#dynamicdiv").empty();
-        var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input>");
-        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input>");
+        var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input><img id='feeling' src='assets/images/adventurous.jpg' alt='chef preparing a meal'" );
+        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input><img id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
         var submit =("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit3'>Submit</button>"); 
-        var formCuisine =$("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/#.JPEG' alt='Photo of china'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/#.JPEG' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/#.JPEG' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/#.PNG' alt='Photo of New Mexico'>");  
+        var formCuisine =$("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/nola.jpg' alt='Photo of New Orleans'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/nyc.jpg' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/new-england.jpg' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/new-mexico.jpg' alt='Photo of New Mexico'>");  
 
                    $("#dynamicdiv").html(formCuisine);   
                    $("#dynamicdiv").append(formFeeling);
@@ -257,7 +257,7 @@ var cityChoice = "gumbo";
          
 if (questionOne==="option3") {
 console.log ("NE");
-var cityChoice = "new england clam chowder";
+var cityChoice = "new%england%clam%chowder";
 (americanFood).push(cityChoice);
 }
       
@@ -278,12 +278,12 @@ var lazyChoice = "&ingr=9";
 
 if (questionTwo==="option2") {
 console.log ("adventurous");
-var lazyChoice = "&ingr=50";
+var lazyChoice = "&ingr=22";
 (lazy).push(lazyChoice);
 }
         
 // Question 3.
-var questionThree = $("input[name=gridRadiosNew2]:checked").val();
+var questionThree = $("input[name=gridRadios2]:checked").val();
 
 if (questionThree==="option1") {
 console.log ("diet");
@@ -297,7 +297,10 @@ var onaDiet = "&calories=gte%800";
 (diet).push(onaDiet);
 }
 
-queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+//var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+
+console.log( queryUrl );
 
 $.ajax ({
  url: queryUrl,
@@ -307,16 +310,25 @@ $.ajax ({
 
 console.log(res);
 
+
+
+
+
 }); // closes done
 
-  
-    }
+/* recipeName = $("<p id='recipeName'>").text(res.recipe.label);
+recipePic = $("<img id='restaurantImg'>") restaurantPic.addClass("image");
+recipePic.attr("src", res.recipe.image);
+recipeLink = $("<a>");
+recipeLink.attr("href", res.recipe.uri).append("Website"); */
+
+
+
+}
  
-  
   
   function stage6() {
 	// look at materialize carousel for scrolling through saved experiences
 }
-
 
 }); // closes document ready
