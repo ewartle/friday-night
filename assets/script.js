@@ -13,12 +13,8 @@ $(document).ready(function() {
     var results;
     var random;
     var table;
-
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
-
-
-
 
 
     $("#letsgo").on("click", function(event) {
@@ -58,7 +54,6 @@ $(document).ready(function() {
         $("#stage2div").append(outsideDiv);
         $("#stage2div").append(insideDiv);
 
-
     }
 
 
@@ -94,8 +89,7 @@ $(document).ready(function() {
 
         $("#dynamicdiv").empty();
         var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input><img class='cities' id='feeling' src='assets/images/adventurous.jpg' alt='chef preparing a meal'");
-        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input><img class='cities' id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
-
+        var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios2' value='option2'> No </input><img class='cities' id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
         var submit = ("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit3'>Place My Bet</button>");
         var formCuisine = $("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/nola.jpg' alt='Photo of New Orleans'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/nyc.jpg' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/new-england.jpg' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/new-mexico.jpg' alt='Photo of New Mexico'>");
 
@@ -104,7 +98,6 @@ $(document).ready(function() {
         $("#dynamicdiv").append(formDiet);
         $("#dynamicdiv").append(submit);
     });
-
 
 
     function stage4() {
@@ -118,8 +111,6 @@ $(document).ready(function() {
         $(generateLogo).text("Generating Experience");
         $(stage4div).append(generateLogo);
 
-        
-
         makeitflash();
 
         var spin = new Audio("assets/spinsound.mp3");
@@ -132,7 +123,6 @@ $(document).ready(function() {
 
         }
     }
-
 
 
     var insideActivityArray = [
@@ -169,8 +159,6 @@ $(document).ready(function() {
 
         generateOutside();
 
-
-
     });
 
 
@@ -179,7 +167,6 @@ $(document).ready(function() {
     $(document).on("click", "#submit3", function nextPhaseInside5() {
 
         generateInside();
-
 
     });
 
@@ -196,7 +183,6 @@ $(document).ready(function() {
         console.log(randomActivity);
 
     }
-
 
 
     function generateOutside() {
@@ -229,9 +215,7 @@ $(document).ready(function() {
         }
 
 
-
         var queryTerm2 = $("input[name=gridRadiosNew]:checked").val();
-
 
         if (queryTerm2 === "option1") {
 
@@ -259,8 +243,6 @@ $(document).ready(function() {
             var button2Checked = true
         }
 
-
-
         if (button1Checked && button2Checked) {
             stage4();
             $.ajax({
@@ -286,30 +268,19 @@ $(document).ready(function() {
             });
 
             generateOutsideActivity();
-        } 
-
-        else {
-
-       
+        } else {
 
             $("#alertChoice").empty();
             $(itemdiv).html(alertdiv);
             $("#container3").prepend(itemdiv);
-
-           
 
             for (var i = 0; i < 1; i++) {
                 $("#pAlert").fadeOut(500);
                 $("#pAlert").fadeIn(500);
             }
 
-            
             pickupDineIn = " ";
-
-
-
         }
-
 
 
         if (button1Checked) {
@@ -321,10 +292,6 @@ $(document).ready(function() {
             cuisineMethod.pop();
 
         }
-
-    }
-
-
 
     }
 
@@ -363,10 +330,6 @@ $(document).ready(function() {
             var cityChoice = "tacos";
             (americanFood).push(cityChoice);
         }
-
-
-
-
 
         // Question 2.
         var questionTwo = $("input[name=gridRadiosNew]:checked").val();
@@ -427,53 +390,11 @@ $(document).ready(function() {
             recipeLink = $("<a>");
             recipeLink.attr("href", res.hits[random].recipe.url).append("Website");
 
-
         }); // closes done
 
     }
 
-    function generateInsideActivity() {
 
-        var randomActivity = Math.floor(Math.random() * (insideActivityArray.length));
-        console.log(randomActivity);
-    }
-    generateInsideActivity();
-
-
-
-        var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-        //var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-
-        console.log(queryUrl);
-
-        $.ajax({
-            url: queryUrl,
-            method: "GET"
-
-        }).done(function(res) {
-
-
-            var random = Math.floor(Math.random() * (res.hits.length))
-
-            console.log(res);
-
-            console.log(res.hits[random].recipe.label);
-            console.log(res.hits[random].recipe.image);
-            console.log(res.hits[random].recipe.url);
-
-
-            recipeName = $("<p id='recipeName'>").text(res.hits[random].recipe.label);
-            recipePic = $("<img id='recipeImg'>")
-            recipePic.attr("src", res.hits[random].recipe.image);
-            recipeLink = $("<a>");
-            recipeLink.attr("href", res.hits[random].recipe.url).append("Website");
-
-
-        }); // closes done
-
-    }
-
-  
     function stage5Out() {
 
         $("#dynamicdiv").empty();
@@ -490,10 +411,10 @@ $(document).ready(function() {
 
         if (pickupDineIn === "pickup") {
             var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
-            var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".  Because you are always on the go, you will take your food to-go and enjoy at the local park.  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+            var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
         } else {
             var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
-            var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+            var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
         }
 
         $("#stage5div1").append(text);
@@ -519,13 +440,10 @@ $(document).ready(function() {
         $("#original4").append(activityName);
         $("#original4").append(activityPic);
 
-
     }
 
+
     $(document).on("click", "#submit5", function newExperience() {
-
-
-
 
         function addNewExperience() {
             $("#stage5div1").empty();
@@ -556,13 +474,13 @@ $(document).ready(function() {
             $("#original4").append(activityName);
             $("#original4").append(activityPic);
 
-            
+
             if (pickupDineIn === "pickup") {
                 var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".  Because you are always on the go, you will take your food to-go and enjoy at the local park.  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+                var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
             } else {
                 var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+                var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
             }
             $("#stage5div1").append(text);
             $("#stage5div1").append(text2);
@@ -571,12 +489,10 @@ $(document).ready(function() {
 
         if (outsideOrInside === "outside") {
             addNewExperience();
-            
+
         } else {
 
         }
-
-
 
     });
 
