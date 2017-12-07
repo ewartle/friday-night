@@ -246,13 +246,13 @@ $(document).ready(function() {
         }
 
       if(button1Checked&&button2Checked){
-      
+          stage4();
           $.ajax({
               url: queryURL,
               method: "GET"
           }).done(function(response) {
 
-            var results =response 
+            results =response 
             console.log(results);
             var i=results.restaurants.length;
             var random = Math.floor(Math.random()*(i))
@@ -489,12 +489,7 @@ $(document).ready(function() {
 
     });
 
-    //This code places he items in the table and puts the dynamic table element on the page
-    $(document).on("click", "#submit5", function addLocalStorageDisplayTable() {
-
-        //   $("#stage5div3").append(table);
-
-    });
+    
 
 
 
