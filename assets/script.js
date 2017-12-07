@@ -306,9 +306,7 @@ $(document).ready(function() {
         lazy = [];
         diet = [];
 
-         var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-        //var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-
+         
 
         // Question 1.
         var questionOne = $("input[name=gridRadios]:checked").val();
@@ -368,6 +366,10 @@ $(document).ready(function() {
             var onaDiet = "&calories=gte800";
             (diet).push(onaDiet);
         }
+
+        var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+        //var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+
 
         // User validation 
         if (questionOne === "option1" || questionOne === "option2" || questionOne === "option3" || questionOne === "option4") {
@@ -435,11 +437,7 @@ $(document).ready(function() {
 
     }
 
-    function generateInsideActivity() { //IS THIS A DUPLICATE FUNCTION?
-
-        var randomActivity = Math.floor(Math.random() * (insideActivityArray.length));
-        console.log(randomActivity);
-    }
+  
     generateInsideActivity();
 
 
