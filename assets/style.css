@@ -1,6 +1,7 @@
 #homepage {
     text-align: center;
     color: white;
+    background-color: rgba(184,184,184,.5) ;
 }
 
 .form-group {
@@ -219,6 +220,7 @@ label {
     font-size: 20px;
 }
 
+
 #desc {
     font-size: 20px;
     margin: 0px;
@@ -260,3 +262,16 @@ label {
     95%  {left:-100px; top:-20px;}
     100%  {left:-150px; top:60px;}
 }
+
+.imageBehind {
+   /* fallback color */
+   color: black; 
+   /* overrides color with nothingness */
+   -webkit-text-fill-color: transparent;
+      /* remember non WebKit browsers will see all of this EXCEPT the text */
+   background: url(./images/roulette.jpg) no-repeat; 
+   /* the magic */
+   -webkit-background-clip: text;
+   font: bold 100px Impact, Sans-Serif;
+}
+
