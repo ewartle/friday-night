@@ -118,10 +118,13 @@ $(document).ready(function() {
 
         makeitflash();
 
+        var spin = new Audio("assets/spinsound.mp3");
+        spin.play();
+
         if (outsideOrInside === "outside") {
-            setTimeout(stage5Out, 4000);
+            setTimeout(stage5Out, 4500);
         } else {
-            setTimeout(stage5In, 4000);
+            setTimeout(stage5In, 4500);
         }
     }
 
