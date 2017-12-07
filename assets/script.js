@@ -13,8 +13,10 @@ $(document).ready(function() {
     var results;
     var random;
     var table;
+
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
+
 
 
 
@@ -45,17 +47,15 @@ $(document).ready(function() {
         var outsideImage = $("<img class='insideOutside'>").attr("src", outside.image);
         $(outsideImage).attr("id", "outside");
         $(outsideDiv).append(outsideImage);
-        $(outsideDiv).append("<p>" + "take a long walk on the beach");
-        var or = $("<p class='float padding'>" + " OR " + "</p>")
+        $(outsideDiv).append("<p>" + "take a long walk on the beach...OR... ");
 
         var insideDiv = $("<div class='float'>");
         var insideImage = $("<img class='insideOutside'>").attr("src", inside.image);
         $(insideImage).attr("id", "inside");
         $(insideDiv).append(insideImage);
-        $(insideDiv).append("<p>" + "sit by a cozy fire");
+        $(insideDiv).append("<p>" + "sit by a cozy fire?");
 
         $("#stage2div").append(outsideDiv);
-        $("#stage2div").append(or);
         $("#stage2div").append(insideDiv);
 
 
@@ -69,7 +69,9 @@ $(document).ready(function() {
 
         outsideOrInside = "outside";
         var formMethod = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you always running?</p><img class='cities' id='run' src= 'assets/images/run.PNG' alt='Photo of running'><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input>");
+
         var submit = $("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit2'>Place My Bet</button>");
+
         var formCuisine = $("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> What country do you want to visit? </p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>China</input><img class= 'cities' id='China' src= 'assets/images/China.JPEG' alt='Photo of china'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>Italy</input> <img class= 'cities' id='Italy' src= 'assets/images/italy.JPEG' alt='Photo of italy'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'>India </input><img class= 'cities' id='India' src= 'assets/images/india.JPEG' alt='Photo of india'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>Anywhere in the world </input><img class= 'cities' id='anywhere' src= 'assets/images/globe.PNG' alt='Photo of globe'>");
 
         $("#dynamicdiv").append(formCuisine);
@@ -93,9 +95,9 @@ $(document).ready(function() {
         $("#dynamicdiv").empty();
         var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input><img class='cities' id='feeling' src='assets/images/adventurous.jpg' alt='chef preparing a meal'");
         var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input><img class='cities' id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'>");
+
         var submit = ("<div id='container3'><div class='BoxIndex'><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit3'>Place My Bet</button>");
         var formCuisine = $("<div id='container1'><div class='BoxIndex'><fieldset class='form-group'><div class='row'><p class='stage3P'> Where do you want to visit?</p><div class='col-md-12><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/nola.jpg' alt='Photo of New Orleans'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/nyc.jpg' alt='Photo of New York City'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/new-england.jpg' alt='Photo of New England'><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/new-mexico.jpg' alt='Photo of New Mexico'>");
-
 
         $("#dynamicdiv").html(formCuisine);
         $("#dynamicdiv").append(formFeeling);
@@ -116,12 +118,18 @@ $(document).ready(function() {
         $(generateLogo).text("Generating Experience");
         $(stage4div).append(generateLogo);
 
+        
+
         makeitflash();
 
+        var spin = new Audio("assets/spinsound.mp3");
+        spin.play();
+
         if (outsideOrInside === "outside") {
-            setTimeout(stage5Out, 4000);
+            setTimeout(stage5Out, 5000);
         } else {
-            setTimeout(stage5In, 4000);
+            setTimeout(stage5In, 5000);
+
         }
     }
 
@@ -164,6 +172,7 @@ $(document).ready(function() {
 
 
     });
+
 
     //This is the function generating the inside experience after userInput.  This function is triggered by a click event that appears in stage 3.   
 
@@ -214,9 +223,11 @@ $(document).ready(function() {
         }
         if (queryTerm === "option4") {
 
+
             var cuisineUser = " ";
             (cuisineChoice).push(cuisineUser);
         }
+
 
 
         var queryTerm2 = $("input[name=gridRadiosNew]:checked").val();
@@ -226,7 +237,9 @@ $(document).ready(function() {
 
             var cuisineMeth = "pickup";
             (cuisineMethod).push(cuisineMeth);
+
             pickupDineIn = "pickup"
+
         }
 
         if (queryTerm2 === "option2") {
@@ -277,17 +290,19 @@ $(document).ready(function() {
 
         else {
 
-
-
+       
 
             $("#alertChoice").empty();
             $(itemdiv).html(alertdiv);
             $("#container3").prepend(itemdiv);
 
+           
+
             for (var i = 0; i < 1; i++) {
                 $("#pAlert").fadeOut(500);
                 $("#pAlert").fadeIn(500);
             }
+
             
             pickupDineIn = " ";
 
@@ -296,14 +311,20 @@ $(document).ready(function() {
         }
 
 
+
         if (button1Checked) {
             cuisineChoice.pop();
         }
+
 
         if (button2Checked) {
             cuisineMethod.pop();
 
         }
+
+    }
+
+
 
     }
 
@@ -411,12 +432,53 @@ $(document).ready(function() {
 
     }
 
+    function generateInsideActivity() {
+
+        var randomActivity = Math.floor(Math.random() * (insideActivityArray.length));
+        console.log(randomActivity);
+    }
+    generateInsideActivity();
+
+
+
+        var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+        //var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+
+        console.log(queryUrl);
+
+        $.ajax({
+            url: queryUrl,
+            method: "GET"
+
+        }).done(function(res) {
+
+
+            var random = Math.floor(Math.random() * (res.hits.length))
+
+            console.log(res);
+
+            console.log(res.hits[random].recipe.label);
+            console.log(res.hits[random].recipe.image);
+            console.log(res.hits[random].recipe.url);
+
+
+            recipeName = $("<p id='recipeName'>").text(res.hits[random].recipe.label);
+            recipePic = $("<img id='recipeImg'>")
+            recipePic.attr("src", res.hits[random].recipe.image);
+            recipeLink = $("<a>");
+            recipeLink.attr("href", res.hits[random].recipe.url).append("Website");
+
+
+        }); // closes done
+
+    }
+
   
     function stage5Out() {
 
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button>");
+        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold, play again!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
 
 
@@ -464,8 +526,10 @@ $(document).ready(function() {
 
 
 
+
         function addNewExperience() {
             $("#stage5div1").empty();
+
             var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
 
@@ -483,7 +547,7 @@ $(document).ready(function() {
             restaurantPic.addClass("image");
             restaurantPic.attr("src", results.restaurants[random].logoUrl);
             restaurantLink = $("<a>");
-            restaurantLink.attr("href", results.restaurants[random].url).append("Website");
+            restaurantLink.attr("href", results.restaurants[random].url).append("Click for restaurant info");
 
             $("#headrow").prepend(tableAddRow);
             $("#original").append(restaurantName);
@@ -517,12 +581,30 @@ $(document).ready(function() {
     });
 
 
+    function refresh() {
+        restaurantName = " ";
+        restaurantLink = " ";
+        restaurantPic = " ";
+        randomActivity = " ";
+        restaurantName2 = " ";
+        pickupDineIn = " ";
+        cuisineChoice = [];
+        cuisineMethod = [];
+        results;
+        random;
+        table;
 
+    }
 
+    $(document).on("click", "#submit6", function newExperience() {
+        refresh();
+        stage2();
+    });
 
 
     function stage6() {
         // look at materialize carousel for scrolling through saved experiences
+
 
     }
 

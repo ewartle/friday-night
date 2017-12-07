@@ -22,10 +22,7 @@
     font-family: 'Acme', sans-serif;
     font-size: 30px;
     padding-top: 100px;
-    
 }
-
-
 
 #pAlert{
 
@@ -36,8 +33,6 @@
     padding: 0;
 
 }
-
-
 
 .stage3P {
     color: white;
@@ -51,9 +46,10 @@
 
 .image{
 
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
+    box-shadow:2px 2px 10px 3px #000000;
 
 }
 .cities{
@@ -61,8 +57,9 @@
     opacity: 0.7;
     float: left;
     color: white;
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
+    box-shadow:2px 2px 10px 3px #000000;
 
 }
 
@@ -70,8 +67,6 @@
     border-radius: 75%;
     opacity: 0.7;
     color: white;
-    width: 100px;
-    height: 100px;
 }
 
 .float {
@@ -84,11 +79,11 @@
    animation-name: pics;
    animation-duration: 1s;
    border-radius: 25%;
+   width: 250px;
 }
 
 .insideOutside:hover {
-    width: 350px;
-    height: 250px;
+    width: 275px;
     
 }
 
@@ -111,7 +106,6 @@
     margin: 10px;
 }
 
-
 body {
 
     background-image: url(./images/roulette.jpg);
@@ -121,18 +115,14 @@ body {
     
 }
 
-
-
 #container6 {
     background-size: 100%;
     color: white;
     background-color: rgba(184,184,184,.5);
     margin-top: 30px;
     border-radius: 50px;
-
-   
-
 }
+
 #container5 {
     background-size: 100%;
     color: white;
@@ -167,7 +157,6 @@ body {
 
 }
 
-
 #container2 {
     background-size: 100%;
     color: white;
@@ -192,10 +181,10 @@ body {
     margin-left: 50px;
 }
 
-
 #suspense {
 display: block;
 margin: auto;
+margin-top: 15px;
 }
 
 #generateflash {
@@ -204,12 +193,9 @@ margin: auto;
 	font-size: 80px;
 }
 
-
-
 label {
  display: inline-flex;
  align-items: stretch;
- 
 }
 
 #method {
@@ -222,7 +208,6 @@ label {
     color: white;
     font-size: 20px;
 }
-
 
 #desc {
     font-size: 20px;
@@ -239,7 +224,6 @@ label {
     position: relative;
     animation-name: marble;
     animation-duration: 15s;
-
 }
 
 @keyframes marble {
@@ -275,6 +259,24 @@ label {
    background: url(./images/roulette.jpg) no-repeat; 
    /* the magic */
    -webkit-background-clip: text;
-   font: bold 100px Impact, Sans-Serif;
+   font: bold 120px 'Acme', Sans-Serif;
+}
+
+a {
+    font-size: 20px;
+    padding-left: 75px;
+    color: blue;
+}
+
+p {
+    font-size: 20px;
+}
+
+#submit6 {
+    margin-left: 15px;
+}
+
+#submit2 {
+    margin-top: 15px;
 }
 
