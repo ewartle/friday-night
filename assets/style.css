@@ -47,6 +47,11 @@
     font-size: 30px;
 }
 
+#stage5Pin {
+    color:white;
+    font-size: 30px;
+}
+
 .image{
 
     width: 150px;
@@ -65,6 +70,14 @@
 }
 
 #restaurantImg {
+    border-radius: 75%;
+    opacity: 0.7;
+    color: white;
+    width: 100px;
+    height: 100px;
+}
+
+#recipeImg {
     border-radius: 75%;
     opacity: 0.7;
     color: white;
@@ -222,6 +235,12 @@ label {
 
 
 #desc {
+    font-size: 20px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+#desc-in {
     font-size: 20px;
     margin: 0px;
     padding-bottom: 20px;

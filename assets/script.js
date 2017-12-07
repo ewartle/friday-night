@@ -17,6 +17,7 @@ $(document).ready(function() {
     var recipeName = ""
     var recipePic = ""
     var recipeLink = ""
+    var insideresults = ""
 
     $("#letsgo").on("click", function(event) {
 
@@ -301,12 +302,12 @@ $(document).ready(function() {
     function generateInside() {
 
 
-       
+
         americanFood = [];
         lazy = [];
         diet = [];
 
-         
+
 
         // Question 1.
         var questionOne = $("input[name=gridRadios]:checked").val();
@@ -392,21 +393,22 @@ $(document).ready(function() {
 
             }).done(function(res) {
 
+                insideresults = res
+                var random = Math.floor(Math.random() * (insideresults.hits.length));
 
-                var random = Math.floor(Math.random() * (res.hits.length))
-
-                console.log(res);
+                console.log(insideresults);
 
                 //console.log(res.hits[random].recipe.label);
                 //console.log(res.hits[random].recipe.image);
                 //console.log(res.hits[random].recipe.url);
 
 
-                recipeName = $("<p id='recipeName'>").text(res.hits[random].recipe.label);
+                recipeName = $("<p id='recipeName'>").text(insideresults.hits[random].recipe.label);
+                recipeName2 = insideresults.hits[random].recipe.label;
                 recipePic = $("<img id='recipeImg'>")
-                recipePic.attr("src", res.hits[random].recipe.image);
+                recipePic.attr("src", insideresults.hits[random].recipe.image);
                 recipeLink = $("<a>");
-                recipeLink.attr("href", res.hits[random].recipe.url).append("Website");
+                recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Website");
 
             }); // closes done
 
@@ -437,8 +439,8 @@ $(document).ready(function() {
 
     }
 
-  
-    generateInsideActivity();
+
+    generateInsideActivity(); // What does this do?
 
 
     function stage5Out() {
@@ -501,7 +503,7 @@ $(document).ready(function() {
         $("#dynamicdiv").append(row3);
 
         var text = $("<p id='stage5Pin'>Let's stay in and cook!</p>");
-        var text2 = $("<p id='desc-in'> First, let's cook" + recipeName + ". After you finish your delicious meal, you will " + insideActivityArray[randomActivity] + "Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
 
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
@@ -530,7 +532,7 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit5", function newExperience() {
 
-        function addNewExperience() {
+        function addNewOutsideExp() {
             var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
 
@@ -556,16 +558,46 @@ $(document).ready(function() {
             $("#original4").append(activityName);
             $("#original4").append(activityPic);
 
+        } //closes addNewOutsideExperience.
+
+        function addNewInsideExp() {
+
+            var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
+
+            generateInsideActivity();
+            activityPic = $("<img id='activityImg'>");
+            activityPic.addClass("image");
+            activityPic.attr("src", insideActivityArray[randomActivity].url);
+            activityName = $("<p id='resultName'>").text(insideActivityArray[randomActivity].name);
+
+            var random = Math.floor(Math.random() * (insideresults.hits.length));
+
+
+
+            recipeName = $("<p id='recipeName'>").text(insideresults.hits[random].recipe.label);
+            recipeName2 = insideresults.hits[random].recipe.label;
+            recipePic = $("<img id='recipeImg'>")
+            recipePic.attr("src", insideresults.hits[random].recipe.image);
+            recipeLink = $("<a>");
+            recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Website");
+
+            $("#headrow").prepend(tableAddRow);
+            $("#original").append(recipeName);
+            $("#original").append(recipePic);
+            $("#original").append(recipeLink);
+            $("#original4").append(activityName);
+            $("#original4").append(activityPic);
+
         }
 
         if (outsideOrInside === "outside") {
-            addNewExperience();
+            addNewOutsideExp();
         } else {
-
+            addNewInsideExp();
         }
 
     });
-//
+
 
     function stage6() {
         // look at materialize carousel for scrolling through saved experiences
