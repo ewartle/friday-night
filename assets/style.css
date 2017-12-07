@@ -4,9 +4,38 @@
     background-color: rgba(184,184,184,.5) ;
 }
 
-p {
-	color: white;
+.form-group {
+    margin: 0px;
 }
+
+#h2frontpage {
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-size: 75px;
+    padding-top: 15px;
+}
+
+#frontpage {
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+    padding-top: 100px;
+    
+}
+
+
+
+#pAlert{
+
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin:0;
+    padding: 0;
+
+}
+
+
 
 .stage3P {
     color: white;
@@ -22,7 +51,8 @@ p {
 
     width: 150px;
     height: 150px;
-    border-radius: 75%;
+    border-radius: 50%;
+
 }
 .cities{
     border-radius: 75%;
@@ -47,6 +77,34 @@ p {
     
 }
 
+.insideOutside{
+   transition: width 2s, height 2s;
+   animation-name: pics;
+   animation-duration: 1s;
+   border-radius: 25%;
+}
+
+.insideOutside:hover {
+    width: 350px;
+    height: 250px;
+    
+}
+
+@keyframes pics {
+    0%   {opacity: .1;}
+    10%  {opacity: .2;}
+    20%  {opacity: .3;}
+    30%  {opacity: .4;}
+    40%  {opacity: .5;}
+    50%  {opacity: .6;}
+    60%  {opacity: .7;}
+    70%  {opacity: .8;}
+    80%  {opacity: .9;}
+    90%  {opacity:  1;}
+    100% {opacity:  1;}
+   
+}
+
 .padding {
     margin: 10px;
 }
@@ -56,10 +114,11 @@ body {
 
     background-image: url(./images/roulette.jpg);
     background-size: 100%;
-
-/*     background-color: black; */
     color: white;
+    font-family: 'Acme', sans-serif;
+    
 }
+
 
 
 #container6 {
@@ -68,6 +127,7 @@ body {
     background-color: rgba(184,184,184,.5);
     margin-top: 30px;
     border-radius: 50px;
+
    
 
 }
@@ -76,6 +136,9 @@ body {
     color: white;
     background-color: rgba(184,184,184,.5);
     border-radius: 0px 0px 50px 50px;
+    
+    margin-bottom: 30px;
+    padding-bottom: 30px;
      
 
 }
@@ -85,8 +148,9 @@ body {
     color: white;
     background-color: rgba(184,184,184,.5);
     border-radius: 50px 50px 0px 0px;
-    margin-top: 15px;
-    padding-top:  10px;
+    padding: 0px;
+    padding-top:  20px;
+    margin-top: 20px;
    
 
 }
@@ -96,6 +160,7 @@ body {
     color: white;
     background-color: rgba(184,184,184,.5);
     border-radius: 0px 0px 100px 100px;
+    padding-bottom: 20px;
    
 
 }
@@ -115,6 +180,7 @@ body {
     background-color: rgba(184,184,184,.5);
     border-radius: 100px 100px 0px 0px;
     padding-top: 20px;
+    padding-left: 20px;
 
 }
 
@@ -132,7 +198,6 @@ margin: auto;
 #generateflash {
 	color: white;
 	text-align: center;
-
 	font-size: 80px;
 }
 
@@ -155,6 +220,49 @@ label {
     font-size: 20px;
 }
 
+
+#desc {
+    font-size: 20px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+#letsgo {
+    display: block;
+    width: 100px;
+    height:  100px;
+    margin: auto;
+    margin-top: 100px;
+    position: relative;
+    animation-name: marble;
+    animation-duration: 15s;
+
+}
+
+@keyframes marble {
+    0%   {left:-200px; top:60px;}
+    5%   {left:-100px; top:-40px;}
+    10%  {left:-50px; top:60px;}
+    15%  {left:0px; top:-30px;}
+    20%  {left:70px; top:60px;}
+    25%  {left:100px; top:-80px;}
+    30%  {left:250px; top:60px;}
+    35%  {left:300px; top:-40px;}
+    40%  {left:350px; top:60px;}
+    45%  {left:400px; top:-40px;}
+    50%  {left:500px; top:60px;}
+    55%  {left:450px; top:-20px;}
+    60%  {left:350px; top:60px;}
+    65%  {left:300px; top:-20px;}
+    70%  {left:250px; top:60px;}
+    75%  {left:200px; top:-30px;}
+    80%  {left:150px; top:60px;}
+    85%  {left:100px; top:-20px;}
+    90%  {left:-50px; top:60px;}
+    95%  {left:-100px; top:-20px;}
+    100%  {left:-150px; top:60px;}
+}
+
 .imageBehind {
    /* fallback color */
    color: black; 
@@ -166,3 +274,4 @@ label {
    -webkit-background-clip: text;
    font: bold 100px Impact, Sans-Serif;
 }
+
