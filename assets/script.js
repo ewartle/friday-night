@@ -5,7 +5,12 @@ $(document).ready(function() {
   var restaurantLink = " ";
   var restaurantPic = " "; 
   var randomActivity = " ";  
- // var restaurantMethod =" ";            
+  var restaurantName2 = " ";
+  var pickupDineIn = " ";
+  var cuisineChoice = [];
+  var cuisineMethod = [];
+
+  
  
     $("#letsgo").on("click", function(event) {
   
@@ -30,14 +35,14 @@ $(document).ready(function() {
         };
 
         var outsideDiv = $("<div class='float'>");
-        var outsideImage = $("<img>").attr("src", outside.image);
+        var outsideImage = $("<img class='insideOutside'>").attr("src", outside.image);
         $(outsideImage).attr("id", "outside");
         $(outsideDiv).append(outsideImage);
         $(outsideDiv).append("<p>" + "take a long walk on the beach");
         var or = $("<p class='float padding'>" + " OR " + "</p>")
 
         var insideDiv = $("<div class='float'>");
-        var insideImage = $("<img>").attr("src", inside.image);
+        var insideImage = $("<img class='insideOutside'>").attr("src", inside.image);
         $(insideImage).attr("id", "inside");
         $(insideDiv).append(insideImage);
         $(insideDiv).append("<p>" + "sit by a cozy fire");
@@ -45,6 +50,8 @@ $(document).ready(function() {
         $("#stage2div").append(outsideDiv);
         $("#stage2div").append(or);
         $("#stage2div").append(insideDiv);
+
+                        
     }
      
 
@@ -97,11 +104,6 @@ $(document).ready(function() {
         var generateLogo = $("<div id='generateflash'>");
         $(generateLogo).text("Generating Experience");
         $(stage4div).append(generateLogo);
-        
-        //I added below to see if we could trigger the final phase.  We will need to think of a way to trigger
-//         var submit =("<div class=BoxIndex><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit4'>Submit</button>"); 
-//         $(stage4div).append(submit);
-        
         makeitflash();
         setTimeout(stage5Out, 5000);
 
@@ -139,9 +141,7 @@ $(document).ready(function() {
   $(document).on("click", "#submit2", function nextPhaseOutside5(){
      
       generateOutside();
-      stage4()
-      
-    
+          
   });   
 
   //This is the function generating the inside experience after userInput.  This function is triggered by a click event that appears in stage 3.   
@@ -149,18 +149,14 @@ $(document).ready(function() {
   $(document).on("click", "#submit3", function nextPhaseInside5(){
     
       generateInside();
-      stage4()
-      
-   
+      // stage4()
+         
   }); 
 
  
   function generateOutside(){
         
-          var cuisineChoice = [];
-          var cuisineMethod = [];
-
-          var queryTerm = $("input[name=gridRadios]:checked").val();
+        var queryTerm = $("input[name=gridRadios]:checked").val();
 
         if (queryTerm==="option1") {
           
@@ -187,50 +183,97 @@ $(document).ready(function() {
         
       
         var queryTerm2 = $("input[name=gridRadiosNew]:checked").val();
-        console.log(queryTerm2);
+        
 
          if (queryTerm2==="option1") {
          
           var cuisineMeth = "pickup";
           (cuisineMethod).push(cuisineMeth);
+          //I NEED TO CODE THIS SO THAT IT ACCOUNTS FOR A CHANGED OPTION 2.
+          pickupDineIn="pickup"
          }
 
         if (queryTerm2==="option2") {
           
           var cuisineMeth = ("both");
           (cuisineMethod).push(cuisineMeth);
+
         }
 
-          var queryURL = "https://api.eatstreet.com/publicapi/v1/restaurant/search?method=" + cuisineMethod[0] + "&search=" + cuisineChoice[0] + "&street-address=atlanta&access-token=f758c64bc1106d0d"  
-                  
+        var queryURL = "https://api.eatstreet.com/publicapi/v1/restaurant/search?method=" + cuisineMethod[0] + "&search=" + cuisineChoice[0] + "&street-address=atlanta&access-token=f758c64bc1106d0d"  
+          
+        if (queryTerm==="option1"||queryTerm==="option2"||queryTerm==="option3"||queryTerm==="option4"){
+          var button1Checked=true
+
+        }
+ 
+
+        if(queryTerm2==="option1"||queryTerm2==="option2"){
+          var button2Checked=true
+        }
+
+
+
+      if(button1Checked&&button2Checked){
+      
           $.ajax({
-                url: queryURL,
-                method: "GET"
+              url: queryURL,
+              method: "GET"
           }).done(function(response) {
 
-             var results =response 
-             console.log(results);
-             var i=results.restaurants.length;
-             var random = Math.floor(Math.random()*(i))
-     
-      	      restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
-              restaurantPic = $("<img id='restaurantImg'>")
-                  restaurantPic.addClass("image");
-                  restaurantPic.attr("src", results.restaurants[random].logoUrl);
-      	      restaurantLink = $("<a>");
-      	          restaurantLink.attr("href", results.restaurants[random].url).append("Website");
-      	       
-      	});
-
-        function generateOutsideActivity(){
-
+            var results =response 
+            console.log(results);
+            var i=results.restaurants.length;
+            var random = Math.floor(Math.random()*(i))
+       
+            restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
+            restaurantName2=results.restaurants[random].name;
              
-             randomActivity = Math.floor(Math.random()*(outsideActivityArray.length));
-             console.log(randomActivity);
+            restaurantPic = $("<img id='restaurantImg'>")
+              restaurantPic.addClass("image");
+              restaurantPic.attr("src", results.restaurants[random].logoUrl);
+            restaurantLink = $("<a>");
+                  restaurantLink.attr("href", results.restaurants[random].url).append("Website");
+        	       
+        	});
 
+          function generateOutsideActivity(){
+
+                
+               randomActivity = Math.floor(Math.random()*(outsideActivityArray.length));
+               
+
+          }
+      
+          generateOutsideActivity();
+          stage4()
+        
         }
       
-        generateOutsideActivity();
+     else {
+               
+              
+           
+              
+                var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
+               $("#container1").append(alertdiv);
+
+                for (var i = 0; i < 1; i++) {
+                 $("#pAlert").fadeOut(500);
+                  $("#pAlert").fadeIn(500);
+                 }
+              }
+          
+                 
+          if(button1Checked){
+           cuisineChoice.pop();
+           }
+
+          if(button2Checked){
+                cuisineMethod.pop();
+          }
+          
+
   }
   
   function generateInside(){
@@ -244,76 +287,76 @@ $(document).ready(function() {
 // //lazy
 // //adventurous
 
-americanFood = [];
-lazy = [];
-diet = [];
- 
-// Question 1.
-var questionOne = $("input[name=gridRadios]:checked").val();
+    americanFood = [];
+    lazy = [];
+    diet = [];
+     
+    // Question 1.
+    var questionOne = $("input[name=gridRadios]:checked").val();
 
-if ( questionOne === "option1" ) {
-console.log ("NYC");
-var cityChoice = "pizza";
-(americanFood).push(cityChoice);
-}
-        
-if (questionOne ==="option2") {
-console.log ("NO");
-var cityChoice = "gumbo";
-(americanFood).push(cityChoice);
-}
-         
-if (questionOne==="option3") {
-console.log ("NE");
-var cityChoice = "new england clam chowder";
-(americanFood).push(cityChoice);
-}
-      
-if (questionOne==="option4") {
-console.log("NM")        
-var cityChoice = "tacos";
-(americanFood).push(cityChoice);
-}
+    if ( questionOne === "option1" ) {
+    console.log ("NYC");
+    var cityChoice = "pizza";
+    (americanFood).push(cityChoice);
+    }
+            
+    if (questionOne ==="option2") {
+    console.log ("NO");
+    var cityChoice = "gumbo";
+    (americanFood).push(cityChoice);
+    }
+             
+    if (questionOne==="option3") {
+    console.log ("NE");
+    var cityChoice = "new england clam chowder";
+    (americanFood).push(cityChoice);
+    }
+          
+    if (questionOne==="option4") {
+    console.log("NM")        
+    var cityChoice = "tacos";
+    (americanFood).push(cityChoice);
+    }
 
-// Question 2.
-var questionTwo = $("input[name=gridRadiosNew]:checked").val();
+    // Question 2.
+    var questionTwo = $("input[name=gridRadiosNew]:checked").val();
 
-if (questionTwo==="option1") {
-console.log ("lazy");
-var lazyChoice = "&ingr=9";
-(lazy).push(lazyChoice);
-}
+    if (questionTwo==="option1") {
+    console.log ("lazy");
+    var lazyChoice = "&ingr=9";
+    (lazy).push(lazyChoice);
+    }
 
-if (questionTwo==="option2") {
-console.log ("adventurous");
-var lazyChoice = "&ingr=50";
-(lazy).push(lazyChoice);
-}
-        
-// Question 3.
-var questionThree = $("input[name=gridRadiosNew2]:checked").val();
+    if (questionTwo==="option2") {
+    console.log ("adventurous");
+    var lazyChoice = "&ingr=50";
+    (lazy).push(lazyChoice);
+    }
+            
+    // Question 3.
+    var questionThree = $("input[name=gridRadiosNew2]:checked").val();
 
-if (questionThree==="option1") {
-console.log ("diet");
-var onaDiet = "&calories=lte%300";
-(diet).push(onaDiet);
-}
+    if (questionThree==="option1") {
+    console.log ("diet");
+    var onaDiet = "&calories=lte%300";
+    (diet).push(onaDiet);
+    }
 
-if (questionThree==="option2") {
-console.log ("not on a diet");
-var onaDiet = "&calories=gte%800";
-(diet).push(onaDiet);
-}
+    if (questionThree==="option2") {
+    console.log ("not on a diet");
+    var onaDiet = "&calories=gte%800";
+    (diet).push(onaDiet);
+    }
 
-queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+    queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
 
-$.ajax ({
- url: queryUrl,
- method: "GET"
+    $.ajax ({
+     url: queryUrl,
+     method: "GET"
 
-}).done(function(res) {
+    }).done(function(res) {
 
-console.log(res);
+    console.log(res);
 
 }); // closes done
 
@@ -324,6 +367,8 @@ console.log(res);
              console.log(randomActivity);
        }
        generateInsideActivity();
+
+
   
     }
  
@@ -338,13 +383,19 @@ function stage5Out() {
         $("#dynamicdiv").append(row2);
         $("#dynamicdiv").append(row3);
 
-        //NEED TO WORK ON THIS!
-        var text = $("<p id='stage5P'>We have a fun evening planned for you!</p><p>First, you will got to' + restaurantName + 'and because you can't sit still, you will take your food' + restaurantMethod</p>");
-        // var rest= 
-        //  var meth=
-        //  var activity=
+        
+
+      if (pickupDineIn==="pickup"){
+          var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
+          var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".  Because you are always on the go, you will take your food to-go and enjoy at the local park.  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+      }
+       else {
+         var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
+         var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .  After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "  Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+       }
 
         $("#stage5div1").append(text);
+        $("#stage5div1").append(text2);
 
        // Following Code creates the table
 
@@ -373,7 +424,7 @@ function stage5Out() {
       
 
         
-      //This code places he items in the table and puts the dynamic table element on the page
+      //This code places the items in the table and puts the dynamic table element on the page
       $(document).on("click", "#submit5", function addLocalStorageDisplayTable() {
 
        //   $("#stage5div3").append(table);
