@@ -82,6 +82,7 @@ $(document).ready(function() {
     $(document).on("click", "#inside", function(event) {
 
         $("#dynamicdiv").empty();
+
         outsideOrInside = "inside";
         var formFeeling = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>How are you feeling?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Lazy </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> Adventurous </input>");
         var formDiet = $("<div id='container2'><div class='BoxIndex'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><div class='col-md-12><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><div class='form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios2' value='option2'> No </input>");
@@ -94,8 +95,7 @@ $(document).ready(function() {
         $("#dynamicdiv").append(submit);
     });
 
-
-
+ 
     function stage4() {
         $("#dynamicdiv").empty();
         var column = $("<div class='col-md-12' id='stage4div'>");
@@ -248,96 +248,113 @@ $(document).ready(function() {
         });
 
         generateOutsideActivity();
-    }
+}
+  
 
-    function generateInside() {
-        // # EDAMAM API 
+  function generateInside(){
+ // # EDAMAM API 
 
-        //Let's stay in and cook! 
-        //1. Where would you rather go on a vacation? -----> New Orleans, NYC, New England, New Mexico
-        //2. Feeling lazy or feeling adventurous?
-        //3. On a diet?
 
-        // //lazy
-        // //adventurous
+      americanFood = [];
+      lazy = [];
+      diet = [];
+ 
+// Question 1.
+var questionOne = $("input[name=gridRadios]:checked").val();
 
-        americanFood = [];
-        lazy = [];
-        diet = [];
+if ( questionOne === "option1" ) {
+console.log ("NO");
+var cityChoice = "gumbo";
+(americanFood).push(cityChoice);
+}
+        
+if (questionOne ==="option2") {
+console.log ("NYC");
+var cityChoice = "pizza";
+(americanFood).push(cityChoice);
+}
+         
+if (questionOne==="option3") {
+console.log ("NE");
+var cityChoice = "new%england%clam%chowder";
+(americanFood).push(cityChoice);
+}
+      
+if (questionOne==="option4") {
+console.log("NM")        
+var cityChoice = "tacos";
+(americanFood).push(cityChoice);
+}
 
-        // Question 1.
-        var questionOne = $("input[name=gridRadios]:checked").val();
+// Question 2.
+var questionTwo = $("input[name=gridRadiosNew]:checked").val();
 
-        if (questionOne === "option1") {
-            console.log("NYC");
-            var cityChoice = "pizza";
-            (americanFood).push(cityChoice);
-        }
+if (questionTwo==="option1") {
+console.log ("lazy");
+var lazyChoice = "&ingr=9";
+(lazy).push(lazyChoice);
+}
 
-        if (questionOne === "option2") {
-            console.log("NO");
-            var cityChoice = "gumbo";
-            (americanFood).push(cityChoice);
-        }
+if (questionTwo==="option2") {
+console.log ("adventurous");
+var lazyChoice = "&ingr=22";
+(lazy).push(lazyChoice);
+}
+        
+// Question 3.
+var questionThree = $("input[name=gridRadiosNew2]:checked").val();
 
-        if (questionOne === "option3") {
-            console.log("NE");
-            var cityChoice = "new england clam chowder";
-            (americanFood).push(cityChoice);
-        }
+if (questionThree==="option1") {
+console.log ("diet");
+var onaDiet = "&calories=lte300";
+(diet).push(onaDiet);
+}
 
-        if (questionOne === "option4") {
-            console.log("NM")
-            var cityChoice = "tacos";
-            (americanFood).push(cityChoice);
-        }
+if (questionThree==="option2") {
+console.log ("not on a diet");
+var onaDiet = "&calories=gte800";
+(diet).push(onaDiet);
+}
 
-        // Question 2.
-        var questionTwo = $("input[name=gridRadiosNew]:checked").val();
+var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+//var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
 
-        if (questionTwo === "option1") {
-            console.log("lazy");
-            var lazyChoice = "&ingr=9";
-            (lazy).push(lazyChoice);
-        }
+console.log( queryUrl );
 
-        if (questionTwo === "option2") {
-            console.log("adventurous");
-            var lazyChoice = "&ingr=50";
-            (lazy).push(lazyChoice);
-        }
+$.ajax ({
+ url: queryUrl,
+ method: "GET"
 
-        // Question 3.
-        var questionThree = $("input[name=gridRadiosNew2]:checked").val();
+}).done(function(res) {
 
-        if (questionThree === "option1") {
-            console.log("diet");
-            var onaDiet = "&calories=lte%300";
-            (diet).push(onaDiet);
-        }
 
-        if (questionThree === "option2") {
-            console.log("not on a diet");
-            var onaDiet = "&calories=gte%800";
-            (diet).push(onaDiet);
-        }
+var random = Math.floor(Math.random()*(res.hits.length))
+//console.log(res.hits[random]);
+console.log(res.hits[random].recipe.label);
+console.log(res.hits[random].recipe.image);
+console.log(res.hits[random].recipe.uri)
 
-        queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
+recipeName = $("<p id='recipeName'>").text(res.hits[random].recipe.label);
+recipePic = $("<img id='recipeImg'>") 
+  recipePic.addClass("image");
+  recipePic.attr("src", res.hits[random].recipe.image);
+recipeLink = $("<a>");
+recipeLink.attr("href", res.hits[random].recipe.uri).append("Website");
 
-        $.ajax({
-            url: queryUrl,
-            method: "GET"
+}); // closes done
 
-        }).done(function(res) {
+}
+ 
+      function generateInsideActivity(){
+             
+             var randomActivity = Math.floor(Math.random()*(insideActivityArray.length));
+             console.log(randomActivity);
+       }
+       generateInsideActivity();
+  
+}
 
-            console.log(res);
-
-        }); // closes done
-
-        generateInsideActivity();
-
-    }
-
+        
     function stage5Out() {
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
@@ -417,24 +434,18 @@ $(document).ready(function() {
 
     });
 
-
-
     //This code places he items in the table and puts the dynamic table element on the page
     $(document).on("click", "#submit5", function addLocalStorageDisplayTable() {
 
         //   $("#stage5div3").append(table);
 
-
-
-
     });
+    
+}  
 
-
-
-    function stage6() {
-        // look at materialize carousel for scrolling through saved experiences
-    }
-
-
+  
+  function stage6() {
+	// look at materialize carousel for scrolling through saved experiences
+}
 
 }); // closes document ready
