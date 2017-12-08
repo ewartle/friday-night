@@ -394,10 +394,11 @@ $(document).ready(function() {
 
                 recipeName = $("<p id='recipeName'>").text(insideresults.hits[random].recipe.label);
                 recipeName2 = insideresults.hits[random].recipe.label;
-                recipePic = $("<img id='recipeImg'>")
+                recipePic = $("<img id='recipeImg'>");
+                recipePic.addClass("image");
                 recipePic.attr("src", insideresults.hits[random].recipe.image);
                 recipeLink = $("<a>");
-                recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Website");
+                recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Click to view recipe");
             });
             generateInsideActivity();
 
@@ -475,7 +476,7 @@ $(document).ready(function() {
 
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button>");
+        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold, play again!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
 
         $("#dynamicdiv").append(row1);
@@ -570,10 +571,11 @@ $(document).ready(function() {
 
         recipeName = $("<p id='recipeName'>").text(insideresults.hits[random].recipe.label);
         recipeName2 = insideresults.hits[random].recipe.label;
-        recipePic = $("<img id='recipeImg'>")
+        recipePic = $("<img id='recipeImg'>");
+        recipePic.addClass("image");
         recipePic.attr("src", insideresults.hits[random].recipe.image);
         recipeLink = $("<a>");
-        recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Website");
+        recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Click to view recipe");
 
         $("#headrow").prepend(tableAddRow);
         $("#original").append(recipeName);
