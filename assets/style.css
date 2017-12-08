@@ -59,6 +59,18 @@
     box-shadow:2px 2px 10px 3px #000000;
 }
 
+#run{
+    margin-left: 40px;
+}
+
+#feeling{
+    margin-left: 40px;
+}
+
+#diet{
+    margin-left: 40px;
+}
+
 #restaurantImg {
     border-radius: 75%;
     opacity: 0.7;
@@ -109,6 +121,7 @@ body {
     color: white;
     font-family: 'Acme', sans-serif;
     
+    
 }
 
 #container6 {
@@ -136,6 +149,7 @@ body {
     padding: 0px;
     padding-top:  20px;
     margin-top: 20px;
+    padding-left: 20px;
 }
 
 #container3 {
@@ -179,12 +193,9 @@ margin-top: 15px;
 	font-size: 80px;
 }
 
-label {
- display: inline-flex;
- align-items: stretch;
-}
 
-#method {
+
+.form-check-label {
  
     margin-left: 25px;
 }
@@ -264,5 +275,11 @@ p {
 
 #submit2 {
     margin-top: 15px;
+    margin-left:40px;
+}
+
+#submit3 {
+    margin-top: 15px;
+    margin-left:40px;
 }
 
