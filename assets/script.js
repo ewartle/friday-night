@@ -511,6 +511,8 @@ $(document).ready(function() {
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
 
+
+
         // Following Code creates the table
 
         table = $("<table class='table'><thead><tr><th>Restaurant & website</th><th>Activity</th><tbody id='headrow'><tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
@@ -581,6 +583,7 @@ $(document).ready(function() {
         }
 
     function addNewInsideExp() {
+        $("#stage5div1").empty();
 
         var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
@@ -607,8 +610,15 @@ $(document).ready(function() {
         $("#original4").append(activityName);
         $("#original4").append(activityPic);
 
+        // id names...
+
+        var text = $("<p id='stage5Pin'>Here's a different option!</p>");
+        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+        $("#stage5div1").append(text);
+        $("#stage5div1").append(text2);
     } //closes addNeInsideExperience.
 
+    S
 
     function refresh() {
         restaurantName = " ";
@@ -638,7 +648,7 @@ $(document).ready(function() {
         var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + restaurantName2 + "&nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
-        var text3=$("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
+        var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
 
 
         $("#dynamicdiv").empty();
@@ -657,10 +667,10 @@ $(document).ready(function() {
         makeitflash();
 
         $("#pause").on("click", function() {
-        friday.pause();
+            friday.pause();
         });
         $("#theme-button").on("click", function() {
-        friday.play();
+            friday.play();
         });
 
     }
@@ -670,14 +680,14 @@ $(document).ready(function() {
 
     });
 
-function stage6Inside() {
+    function stage6Inside() {
 
         var atlantaSitesText = $("<p class= 'stage6P'> For more ideas of fun Atlanta activities and events, checkout: &nbsp <a class='stage6A' href= 'http://www.atlanta.net/things-to-do/' target='_blank'>Atlanta.net</a>, <a class='stage6A' href= 'https://www.tripadvisor.com/Attractions-g60898-Activities-Atlanta_Georgia.html' target='_blank'>Trip Advisor-Atlanta</a>, and <a class='stage6A' href = 'http://www.creativeloafing.com/' target='_blank'>Creative Loafing</a>.  &nbsp &nbsp If you don't want to go alone, invite a friend or check out this <a class='stage6A' href= 'https://www.top10bestdatingsites.com/comparison?utm_source=google&kw=dating%20websites&c=230866384789&t=search&p=&m=e&adpos=1t1&dev=c&devmod=&mobval=0&network=g&campaignid=1000974868&adgroupid=48284230246&targetid=kwd-92276993&interest=&physical=9010934&feedid=&a=1&ts=&topic=&gender=&age=&agerange=&gclid=EAIaIQobChMI6MLgxpH71wIVg4uzCh2jgASNEAAYASAAEgKFivD_BwE' target='_blank'>review </a> of the top 10 dating websites.</p>");
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
         var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + recipeName2 + "&nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
-        var text3= $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
+        var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
 
 
         $("#dynamicdiv").empty();
@@ -696,20 +706,20 @@ function stage6Inside() {
         makeitflash();
 
         $("#pause").on("click", function() {
-        friday.pause();
+            friday.pause();
         });
         $("#theme-button").on("click", function() {
-        friday.play();
+            friday.play();
         });
 
     }
 
-    $(document).on("click", "#submit8", function (event) {
+    $(document).on("click", "#submit8", function(event) {
         stage6Inside();
 
     });
 
-    $(document).on("click", "#submit9", function (event) {
+    $(document).on("click", "#submit9", function(event) {
         friday.pause();
         stage2();
 
