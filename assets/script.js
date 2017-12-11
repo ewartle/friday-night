@@ -621,23 +621,20 @@ $(document).ready(function() {
         var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + restaurantName2 + "&nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
         var text3=$("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
-        //    var stage6Image = $("<img>").attr("src", "assets/images/winning.JPEG");
-        //    $(stage6Image).attr("id", "stage6img");
-        
+     
 
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
         $(column1).append(atlantaSitesText);
         $(column1).append(text3);
-        //   $(column1).append(bodydynamic);
-        //   $(column1).append(stage6Image);
+        
 
         $("#dynamicdiv").append(column1);
 
         var friday = new Audio("assets/fridaynight.mp3");
         friday.play();
-        friday.currentTime = 36.5
+        friday.currentTime = 36.5;
 
         makeitflash();
 
@@ -661,22 +658,28 @@ function stage6Inside() {
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
         var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + recipeName2 + "&nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
-        //    var stage6Image = $("<img>").attr("src", "assets/images/winning.JPEG");
-        //    $(stage6Image).attr("id", "stage6img");
+        var text3= $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
 
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
         $(column1).append(atlantaSitesText);
-        //   $(column1).append(bodydynamic);
-        //   $(column1).append(stage6Image);
+        $(column1).append(text3);
 
         $("#dynamicdiv").append(column1);
 
         var friday = new Audio("assets/fridaynight.mp3");
         friday.play();
+        friday.currentTime = 36.5;
 
         makeitflash();
+
+        $("#pause").on("click", function() {
+        friday.pause();
+        });
+        $("#theme-button").on("click", function() {
+        friday.play();
+        });
 
     }
 
