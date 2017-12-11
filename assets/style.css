@@ -1,7 +1,7 @@
 #homepage {
     text-align: center;
     color: white;
-    background-color: rgba(184,184,184,.5) ;
+    background-color: rgba(184, 184, 184, .5);
 }
 
 .form-group {
@@ -29,12 +29,12 @@
     margin-right: 15px;
 }
 
-#pAlert{
+#pAlert {
 
     color: white;
     font-size: 40px;
     text-align: center;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
@@ -49,7 +49,7 @@
     font-size: 25px;
 }
 
-.stage6P2{
+.stage6P2 {
     color: white;
     font-size: 50px;
     padding-left: 30px;
@@ -61,45 +61,44 @@
     color: black;
 }
 
-
-#stage5P{
+#stage5P {
     color: white;
     font-size: 35px;
     padding-left: 15px;
 }
 
 #stage5Pin {
-    color:white;
+    color: white;
     font-size: 30px;
 }
 
-.image{
+.image {
 
     width: 125px;
     height: 125px;
     border-radius: 50%;
-    box-shadow:2px 2px 10px 3px #000000;
+    box-shadow: 2px 2px 10px 3px #000000;
 }
 
-.cities{
+.cities {
     border-radius: 75%;
     opacity: 0.7;
     float: left;
     color: white;
     width: 125px;
     height: 125px;
-    box-shadow:2px 2px 10px 3px #000000;
+    box-shadow: 2px 2px 10px 3px #000000;
 }
 
-#run{
+#run {
     margin-left: 40px;
 }
 
-#feeling{
+#feeling {
     margin-left: 40px;
 }
 
-#diet{
+#diet {
     margin-left: 40px;
 }
 
@@ -111,35 +110,54 @@
 
 .float {
     float: left;
-    
 }
 
-.insideOutside{
-   transition: width 2s, height 2s;
-   animation-name: pics;
-   animation-duration: 1s;
-   border-radius: 25%;
-   width: 250px;
+.insideOutside {
+    transition: width 2s, height 2s;
+    animation-name: pics;
+    animation-duration: 1s;
+    border-radius: 25%;
+    width: 250px;
 }
 
 .insideOutside:hover {
     width: 275px;
-    
 }
 
 @keyframes pics {
-    0%   {opacity: .1;}
-    10%  {opacity: .2;}
-    20%  {opacity: .3;}
-    30%  {opacity: .4;}
-    40%  {opacity: .5;}
-    50%  {opacity: .6;}
-    60%  {opacity: .7;}
-    70%  {opacity: .8;}
-    80%  {opacity: .9;}
-    90%  {opacity:  1;}
-    100% {opacity:  1;}
-   
+    0% {
+        opacity: .1;
+    }
+    10% {
+        opacity: .2;
+    }
+    20% {
+        opacity: .3;
+    }
+    30% {
+        opacity: .4;
+    }
+    40% {
+        opacity: .5;
+    }
+    50% {
+        opacity: .6;
+    }
+    60% {
+        opacity: .7;
+    }
+    70% {
+        opacity: .8;
+    }
+    80% {
+        opacity: .9;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .padding {
@@ -152,16 +170,12 @@ body {
     background-size: 100%;
     color: white;
     font-family: 'Acme', sans-serif;
-
-
 }
-
-
 
 #container6 {
     background-size: 100%;
     color: white;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     margin-top: 30px;
     border-radius: 50px;
 }
@@ -169,7 +183,7 @@ body {
 #container5 {
     background-size: 100%;
     color: white;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     border-radius: 0px 0px 50px 50px;
     margin-bottom: 30px;
     padding-bottom: 30px;
@@ -178,34 +192,33 @@ body {
 #container4 {
     background-size: 100%;
     color: white;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     border-radius: 50px 50px 0px 0px;
     padding: 0px;
-    padding-top:  20px;
+    padding-top: 20px;
     margin-top: 20px;
     padding-left: 20px;
 }
 
-
 #container3 {
     background-size: 100%;
     color: white;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     border-radius: 0px 0px 100px 100px;
     padding-bottom: 20px;
- }
+}
 
 #container2 {
     background-size: 100%;
     color: white;
-    background-color: rgba(184,184,184,.7);
- }
+    background-color: rgba(184, 184, 184, .7);
+}
 
 #container1 {
     background-size: 100%;
     color: white;
     margin-top: 10px;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     border-radius: 100px 100px 0px 0px;
     padding-top: 20px;
     padding-left: 20px;
@@ -214,28 +227,26 @@ body {
 #container7 {
     background-size: 100%;
     margin-top: 50px;
-    background-color: rgba(184,184,184,.7);
+    background-color: rgba(184, 184, 184, .7);
     border-radius: 100px 100px 100px 100px;
     padding: 40px;
-    
 }
 
-
 .BoxIndex {
- 
+
     margin-left: 50px;
 }
 
 #suspense {
-display: block;
-margin: auto;
-margin-top: 15px;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
 }
 
 #generateflash {
-	color: white;
-	text-align: center;
-	font-size: 80px;
+    color: white;
+    text-align: center;
+    font-size: 80px;
 }
 
 #generateflash2 {
@@ -245,7 +256,7 @@ margin-top: 15px;
 }
 
 .form-check-label {
- 
+
     margin-left: 25px;
 }
 
@@ -279,7 +290,7 @@ margin-top: 15px;
 #letsgo {
     display: block;
     width: 100px;
-    height:  100px;
+    height: 100px;
     margin: auto;
     margin-top: 100px;
     position: relative;
@@ -288,39 +299,102 @@ margin-top: 15px;
 }
 
 @keyframes marble {
-    0%   {left:-200px; top:60px;}
-    5%   {left:-100px; top:-40px;}
-    10%  {left:-50px; top:60px;}
-    15%  {left:0px; top:-30px;}
-    20%  {left:70px; top:60px;}
-    25%  {left:100px; top:-80px;}
-    30%  {left:250px; top:60px;}
-    35%  {left:300px; top:-40px;}
-    40%  {left:350px; top:60px;}
-    45%  {left:400px; top:-40px;}
-    50%  {left:500px; top:60px;}
-    55%  {left:450px; top:-20px;}
-    60%  {left:350px; top:60px;}
-    65%  {left:300px; top:-20px;}
-    70%  {left:250px; top:60px;}
-    75%  {left:200px; top:-30px;}
-    80%  {left:150px; top:60px;}
-    85%  {left:100px; top:-20px;}
-    90%  {left:-50px; top:60px;}
-    95%  {left:-100px; top:-20px;}
-    100%  {left:-150px; top:60px;}
+    0% {
+        left: -200px;
+        top: 60px;
+    }
+    5% {
+        left: -100px;
+        top: -40px;
+    }
+    10% {
+        left: -50px;
+        top: 60px;
+    }
+    15% {
+        left: 0px;
+        top: -30px;
+    }
+    20% {
+        left: 70px;
+        top: 60px;
+    }
+    25% {
+        left: 100px;
+        top: -80px;
+    }
+    30% {
+        left: 250px;
+        top: 60px;
+    }
+    35% {
+        left: 300px;
+        top: -40px;
+    }
+    40% {
+        left: 350px;
+        top: 60px;
+    }
+    45% {
+        left: 400px;
+        top: -40px;
+    }
+    50% {
+        left: 500px;
+        top: 60px;
+    }
+    55% {
+        left: 450px;
+        top: -20px;
+    }
+    60% {
+        left: 350px;
+        top: 60px;
+    }
+    65% {
+        left: 300px;
+        top: -20px;
+    }
+    70% {
+        left: 250px;
+        top: 60px;
+    }
+    75% {
+        left: 200px;
+        top: -30px;
+    }
+    80% {
+        left: 150px;
+        top: 60px;
+    }
+    85% {
+        left: 100px;
+        top: -20px;
+    }
+    90% {
+        left: -50px;
+        top: 60px;
+    }
+    95% {
+        left: -100px;
+        top: -20px;
+    }
+    100% {
+        left: -150px;
+        top: 60px;
+    }
 }
 
 .imageBehind {
-   /* fallback color */
-   color: black; 
-   /* overrides color with nothingness */
-   -webkit-text-fill-color: transparent;
-      /* remember non WebKit browsers will see all of this EXCEPT the text */
-   background: url(./images/roulette.jpg) no-repeat; 
-   /* the magic */
-   -webkit-background-clip: text;
-   font: bold 120px 'Acme', Sans-Serif;
+    /* fallback color */
+    color: black;
+    /* overrides color with nothingness */
+    -webkit-text-fill-color: transparent;
+    /* remember non WebKit browsers will see all of this EXCEPT the text */
+    background: url(./images/roulette.jpg) no-repeat;
+    /* the magic */
+    -webkit-background-clip: text;
+    font: bold 120px 'Acme', Sans-Serif;
 }
 
 a {
@@ -343,12 +417,12 @@ p {
 
 #submit2 {
     margin-top: 15px;
-    margin-left:40px;
+    margin-left: 40px;
 }
 
 #submit3 {
     margin-top: 15px;
-    margin-left:40px;
+    margin-left: 40px;
 }
 
 #stage6img {
@@ -371,16 +445,49 @@ p {
     }
 
     @keyframes marble {
-    0%   {left:-200px; top:30px;}
-    10%   {left:-100px; top:-60px;}
-    20%  {left:-50px; top:30px;}
-    30%  {left:0px; top:-50px;}
-    40%  {left:70px; top:30px;}
-    50%  {left:100px; top:-80px;}
-    60%  {left:150px; top:30px;}
-    70%  {left:100px; top:-40px;}
-    80%  {left:-50px; top:30px;}
-    90%  {left:-100px; top:-50px;}
-    100%  {left:-150px; top:30px;}
-}
+        0% {
+            left: -200px;
+            top: 30px;
+        }
+        10% {
+            left: -100px;
+            top: -60px;
+        }
+        20% {
+            left: -50px;
+            top: 30px;
+        }
+        30% {
+            left: 0px;
+            top: -50px;
+        }
+        40% {
+            left: 70px;
+            top: 30px;
+        }
+        50% {
+            left: 100px;
+            top: -80px;
+        }
+        60% {
+            left: 150px;
+            top: 30px;
+        }
+        70% {
+            left: 100px;
+            top: -40px;
+        }
+        80% {
+            left: -50px;
+            top: 30px;
+        }
+        90% {
+            left: -100px;
+            top: -50px;
+        }
+        100% {
+            left: -150px;
+            top: 30px;
+        }
+    }
 }
