@@ -23,10 +23,12 @@ $(document).ready(function() {
     var recipeName2;
 
 
+
     $("#letsgo").on("click", function(event) {
 
         stage2();
     })
+
 
     function stage2() {
         $("#dynamicdiv").empty();
@@ -620,15 +622,16 @@ $(document).ready(function() {
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
         var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + restaurantName2 + "&nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
+        var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3=$("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
-     
+
 
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
         $(column1).append(atlantaSitesText);
+        $(column1).append(buttonStartOver);
         $(column1).append(text3);
-        
 
         $("#dynamicdiv").append(column1);
 
@@ -658,12 +661,15 @@ function stage6Inside() {
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
         var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + recipeName2 + "&nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
+        var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3= $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
+
 
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
         $(column1).append(atlantaSitesText);
+        $(column1).append(buttonStartOver);
         $(column1).append(text3);
 
         $("#dynamicdiv").append(column1);
@@ -683,8 +689,13 @@ function stage6Inside() {
 
     }
 
-    $(document).on("click", "#submit8", function acceptThis() {
+    $(document).on("click", "#submit8", function (event) {
         stage6Inside();
+
+    });
+
+    $(document).on("click", "#submit9", function (event) {
+        stage2();
 
     });
 
