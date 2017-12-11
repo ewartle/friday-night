@@ -530,11 +530,7 @@ $(document).ready(function() {
         $("#stage5div1").append(text2);
     }
 
-        $("#stage5div1").append(text);
-        $("#stage5div1").append(text2);
-    }
-
-    function addNewInsideExp() {
+        function addNewInsideExp() {
 
         $("#stage5div1").empty();
 
