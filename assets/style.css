@@ -58,7 +58,7 @@
 .stage6A {
     padding-left: 5px;
     font-size: 25px;
-    color: black;
+    color: #337ab7;
 }
 
 
@@ -214,9 +214,11 @@ body {
 #container7 {
     background-size: 100%;
     margin-top: 50px;
-    background-color: rgba(184,184,184,.7);
+    /*background-color: rgba(184,184,184,.7);*/
     border-radius: 100px 100px 100px 100px;
     padding: 40px;
+    background-image: url(./images/coins.gif);
+
     
 }
 
@@ -326,7 +328,7 @@ margin-top: 15px;
 a {
     font-size: 20px;
     padding-left: 25px;
-    color: blue;
+    color: #337ab7;
 }
 
 p {
