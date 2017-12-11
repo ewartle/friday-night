@@ -274,7 +274,7 @@ $(document).ready(function() {
                 restaurantPic.addClass("image");
                 restaurantPic.attr("src", results.restaurants[random].logoUrl);
                 restaurantLink = $("<a>");
-                restaurantLink.attr("href", results.restaurants[random].url).append("Click for restaurant info");
+                restaurantLink.attr("href", results.restaurants[random].url).append("Restaurant Info");
                 restaurantLink.attr("target", "_blank");
             });
 
@@ -408,7 +408,8 @@ $(document).ready(function() {
                 recipePic.addClass("image");
                 recipePic.attr("src", insideresults.hits[random].recipe.image);
                 recipeLink = $("<a>");
-                recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Click to view recipe");
+                recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Recipe");
+                recipeLink.attr("target", "_blank");
             });
             generateInsideActivity();
 
@@ -538,7 +539,7 @@ $(document).ready(function() {
             restaurantPic.addClass("image");
             restaurantPic.attr("src", results.restaurants[random].logoUrl);
             restaurantLink = $("<a>");
-            restaurantLink.attr("href", results.restaurants[random].url).append("Click for restaurant info");
+            restaurantLink.attr("href", results.restaurants[random].url).append("Restaurant Info");
 
             $("#headrow").prepend(tableAddRow);
             $("#original").append(restaurantName);
@@ -584,7 +585,7 @@ $(document).ready(function() {
         recipePic.addClass("image");
         recipePic.attr("src", insideresults.hits[random].recipe.image);
         recipeLink = $("<a>");
-        recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Click to view recipe");
+        recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Recipe");
 
         $("#headrow").prepend(tableAddRow);
         $("#original").append(recipeName);
