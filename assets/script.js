@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-    //These search terms are here because I need to be able to access across functions.
+  
     var restaurantName = " ";
     var restaurantLink = " ";
     var restaurantLink2;
@@ -28,12 +27,10 @@ $(document).ready(function() {
     var lazy = [];
     var diet = [];
 
-
     $("#letsgo").on("click", function(event) {
 
         stage2();
     })
-
 
     function stage2() {
         $("#dynamicdiv").empty();
@@ -68,8 +65,6 @@ $(document).ready(function() {
         $("#stage2div").append(insideDiv);
     }
 
-
-    //This is the function to dynamically create elements for stageThreeOutside
     $(document).on("click", "#outside", function(event) {
 
         $("#dynamicdiv").empty();
@@ -86,6 +81,7 @@ $(document).ready(function() {
     });
 
     function makeitflash() {
+
         for (var i = 0; i < 4; i++) {
             $("#generateflash").fadeOut(500);
             $("#generateflash").fadeIn(500);
@@ -97,7 +93,6 @@ $(document).ready(function() {
         }
     }
 
-    //This is the function to dynamically create elements for stageThreeOutside
     $(document).on("click", "#inside", function(event) {
 
         $("#dynamicdiv").empty();
@@ -115,6 +110,7 @@ $(document).ready(function() {
     });
 
     function stage4() {
+
         $("#dynamicdiv").empty();
         var column = $("<div class='col-md-12' id='stage4div'>");
         $("#dynamicdiv").append(column);
@@ -149,7 +145,6 @@ $(document).ready(function() {
         { "name": "Video Games", "url": "assets/images/video.jpg", "desc": "play your favorite video game." }
     ];
 
-
     var outsideActivityArray = [
         { "name": "Band", "url": "assets/images/band.jpg", "desc": "watch a band at a local restarant/bar." },
         { "name": "Bowling", "url": "assets/images/bowling.jpg", "desc": "go bowling." },
@@ -170,7 +165,6 @@ $(document).ready(function() {
 
     });
 
-
     //This is the function generating the inside experience after userInput.  This function is triggered by a click event that appears in stage 3.   
 
     $(document).on("click", "#submit3", function nextPhaseInside5() {
@@ -179,18 +173,15 @@ $(document).ready(function() {
 
     });
 
-
     function generateOutsideActivity() {
 
         randomActivity = Math.floor(Math.random() * (outsideActivityArray.length));
     }
 
-
     function generateInsideActivity() {
 
         randomActivity = Math.floor(Math.random() * (insideActivityArray.length));
     }
-
 
     function generateOutside() {
 
@@ -319,7 +310,6 @@ $(document).ready(function() {
             (americanFood).push(cityChoice);
         }
 
-
         // Question 2.
         var questionTwo = $("input[name=gridRadiosNew]:checked").val();
 
@@ -347,7 +337,6 @@ $(document).ready(function() {
         }
 
         var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-        
 
         // User validation 
         if (questionOne === "option1" || questionOne === "option2" || questionOne === "option3" || questionOne === "option4") {
@@ -390,6 +379,7 @@ $(document).ready(function() {
 
             $("#alertChoice").empty();
             $(itemdiv).html(alertdiv1);
+
             $("#container3").prepend(itemdiv);
 
             for (var i = 0; i < 1; i++) {
@@ -397,7 +387,6 @@ $(document).ready(function() {
                 $("#pAlert").fadeIn(500);
             }
         }
-
 
         if (button1Checked) {
             americanFood.pop();
@@ -411,7 +400,6 @@ $(document).ready(function() {
             diet.pop();
         }
     }
-
 
     function stage5Out() {
         $("#dynamicdiv").empty();
@@ -434,11 +422,11 @@ $(document).ready(function() {
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
 
-        // Following Code creates the table
+        // The following code creates the table.
 
         table = $("<table class='table'><thead><tr><th>Restaurant & website</th><th>Activity</th><tbody id='headrow'><tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
-        //the following code is what puts the main variables in the table.  
+        // The following code is what puts the main variables in the table.  
 
         activityPic = $("<img id='activityImg'>");
         activityPic.addClass("image");
@@ -453,10 +441,10 @@ $(document).ready(function() {
         $("#original4").append(activityPic);
     }
 
-
     function stage5In() {
 
         $("#dynamicdiv").empty();
+
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
         var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Double down!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold!</button><button type='submit' class='btn btn-primary' id='submit8'>Cash in my chips!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
@@ -470,7 +458,6 @@ $(document).ready(function() {
 
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
-
 
         // Following Code creates the table
 
@@ -493,7 +480,6 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit5", function newExperience() {
 
-
         if (outsideOrInside === "outside") {
             addNewExperience();
         } else {
@@ -503,17 +489,20 @@ $(document).ready(function() {
     });
 
     function addNewExperience() {
+
         $("#stage5div1").empty();
 
         var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
         generateOutsideActivity();
+      
         activityPic = $("<img id='activityImg'>");
         activityPic.addClass("image");
         activityPic.attr("src", outsideActivityArray[randomActivity].url);
         activityName = $("<p id='resultName'>").text(outsideActivityArray[randomActivity].name);
 
         var random = Math.floor(Math.random() * (results.restaurants.length));
+
         restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
         restaurantName2 = results.restaurants[random].name;
         restaurantPic = $("<img id='restaurantImg'>")
@@ -537,17 +526,22 @@ $(document).ready(function() {
             var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
             var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         }
+        $("#stage5div1").append(text);
+        $("#stage5div1").append(text2);
+    }
 
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
     }
 
     function addNewInsideExp() {
+
         $("#stage5div1").empty();
 
         var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
         generateInsideActivity();
+
         activityPic = $("<img id='activityImg'>");
         activityPic.addClass("image");
         activityPic.attr("src", insideActivityArray[randomActivity].url);
@@ -575,10 +569,12 @@ $(document).ready(function() {
         var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". &nbsp &nbsp After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
-    } //closes addNeInsideExperience.
 
+
+    }
 
     function refresh() {
+
         restaurantName = " ";
         restaurantLink = " ";
         restaurantPic = " ";
@@ -590,6 +586,7 @@ $(document).ready(function() {
         results;
         random;
         table;
+
     }
 
 
@@ -598,7 +595,6 @@ $(document).ready(function() {
         stage2();
 
     });
-
 
     function stage6Outside() {
 
@@ -609,7 +605,6 @@ $(document).ready(function() {
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
 
-
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
@@ -634,12 +629,11 @@ $(document).ready(function() {
 
     }
 
-
     $(document).on("click", "#submit7", function acceptThis() {
+
         stage6Outside();
 
     });
-
 
     function stage6Inside() {
 
@@ -650,7 +644,6 @@ $(document).ready(function() {
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
 
-
         $("#dynamicdiv").empty();
         $(column1).append(text);
         $(column1).append(text2);
@@ -675,17 +668,18 @@ $(document).ready(function() {
 
     }
 
-
     $(document).on("click", "#submit8", function(event) {
+
         stage6Inside();
 
     });
 
 
     $(document).on("click", "#submit9", function(event) {
+
         friday.pause();
         stage2();
 
     });
 
-}); // closes document ready
+});
