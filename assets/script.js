@@ -71,7 +71,7 @@ $(document).ready(function() {
         var formMethod = $("<div id='container2'><div class='BoxIndex'><div class='row'><div class='col-md-12'><fieldset class = 'form-group row'><p class='stage3P'>Are you always running?</p><img class='cities' id='run' src= 'assets/images/run.PNG' alt='Photo of running'><div class = 'form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios1' value='option1'> Yes </input><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew' id='gridRadios2' value='option2'> No </input>");
         var submit = $("<div id='container3'><div class='BoxIndex'><div class='row'><div class='col-md-12'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit2'>Place My Bet</button>");
         var formCuisine = $("<div id='container1'><div class='BoxIndex'><div class='row'><div class='col-md-12'><fieldset class='form-group row'><p class='stage3P'> What country do you want to visit? </p><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>China</input><img class= 'cities' id='China' src= 'assets/images/China.JPEG' alt='Photo of china'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>Italy</input><img class= 'cities' id='Italy' src= 'assets/images/italy.JPEG' alt='Photo of italy'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'>India</input><img class= 'cities' id='India' src= 'assets/images/india.JPEG' alt='Photo of india'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>Anywhere</input><img class= 'cities' id='anywhere' src= 'assets/images/globe.PNG' alt='Photo of globe'>");
-    
+
         $("#dynamicdiv").append(formCuisine);
         $("#dynamicdiv").append(formMethod);
         $("#dynamicdiv").append(submit);
@@ -81,6 +81,12 @@ $(document).ready(function() {
         for (var i = 0; i < 4; i++) {
             $("#generateflash").fadeOut(500);
             $("#generateflash").fadeIn(500);
+        }
+
+        //I ADDED BELOW FOR THE YOU WIN TAG in Stage6
+        for (var i = 0; i < 60; i++) {
+            $("#generateflash2").fadeOut(500);
+            $("#generateflash2").fadeIn(500);
         }
 
     }
@@ -265,7 +271,7 @@ $(document).ready(function() {
                 restaurantPic.attr("src", results.restaurants[random].logoUrl);
                 restaurantLink = $("<a>");
                 restaurantLink.attr("href", results.restaurants[random].url).append("Click for restaurant info");
-
+                restaurantLink.attr("target", "_blank");
             });
 
             generateOutsideActivity();
@@ -431,7 +437,8 @@ $(document).ready(function() {
 
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold, play again!</button>");
+        //I added a new button here.  We need to do the same thing for Inside.
+        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Double down!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold!</button><button type='submit' class='btn btn-primary' id='submit7'>Cash in my chips!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
 
 
@@ -439,14 +446,12 @@ $(document).ready(function() {
         $("#dynamicdiv").append(row2);
         $("#dynamicdiv").append(row3);
 
-
-
         if (pickupDineIn === "pickup") {
             var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
-            var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
+            var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         } else {
             var text = $("<p id='stage5P'>We have a fun evening planned for you!</p>");
-            var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
+            var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         }
 
         $("#stage5div1").append(text);
@@ -540,10 +545,10 @@ $(document).ready(function() {
 
             if (pickupDineIn === "pickup") {
                 var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
+                var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
             } else {
                 var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night.&nbsp &nbsp Enjoy!</p>");
+                var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
             }
             $("#stage5div1").append(text);
             $("#stage5div1").append(text2);
@@ -604,11 +609,40 @@ $(document).ready(function() {
     $(document).on("click", "#submit6", function newExperience() {
         refresh();
         stage2();
+
     });
 
 
-    function stage6() {
-        // look at materialize carousel for scrolling through saved experiences
+    function stage6Outside() {
+
+        var atlantaSitesText = $("<p class= 'stage6P'> For more ideas of fun Atlanta activities and events, checkout: &nbsp <a class='stage6A' href= 'http://www.atlanta.net/things-to-do/' target='_blank'>Atlanta.net</a>, <a class='stage6A' href= 'https://www.tripadvisor.com/Attractions-g60898-Activities-Atlanta_Georgia.html' target='_blank'>Trip Advisor-Atlanta</a>, and <a class='stage6A' href = 'http://www.creativeloafing.com/' target='_blank'>Creative Loafing</a>.  &nbsp &nbsp If you don't want to go alone, invite a friend or check out this <a class='stage6A' href= 'https://www.top10bestdatingsites.com/comparison?utm_source=google&kw=dating%20websites&c=230866384789&t=search&p=&m=e&adpos=1t1&dev=c&devmod=&mobval=0&network=g&campaignid=1000974868&adgroupid=48284230246&targetid=kwd-92276993&interest=&physical=9010934&feedid=&a=1&ts=&topic=&gender=&age=&agerange=&gclid=EAIaIQobChMI6MLgxpH71wIVg4uzCh2jgASNEAAYASAAEgKFivD_BwE' target='_blank'>review </a> of the top 10 dating websites.</p>");
+        var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
+        var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + restaurantName2 + "&nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
+        var column1 = $("<div id='container7'><div class='BoxIndex'>");
+        //    var stage6Image = $("<img>").attr("src", "assets/images/winning.JPEG");
+        //    $(stage6Image).attr("id", "stage6img");
+
+        $("#dynamicdiv").empty();
+        $(column1).append(text);
+        $(column1).append(text2);
+        $(column1).append(atlantaSitesText);
+        //   $(column1).append(bodydynamic);
+        //   $(column1).append(stage6Image);
+
+        $("#dynamicdiv").append(column1);
+
+        var friday = new Audio("assets/fridaynight.mp3");
+        friday.play();
+
+        makeitflash();
+
     }
+
+    $(document).on("click", "#submit7", function acceptThis() {
+        stage6Outside();
+
+    });
+
+
 
 }); // closes document ready
