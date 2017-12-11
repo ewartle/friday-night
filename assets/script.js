@@ -20,6 +20,7 @@ $(document).ready(function() {
     var insideresults = ""
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
+    var recipeName2;
 
 
     $("#letsgo").on("click", function(event) {
@@ -481,7 +482,7 @@ $(document).ready(function() {
 
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Give me a new experience!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold, play again!</button>");
+        var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Double down!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold!</button><button type='submit' class='btn btn-primary' id='submit8'>Cash in my chips!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
 
         $("#dynamicdiv").append(row1);
@@ -643,6 +644,34 @@ $(document).ready(function() {
 
     });
 
+function stage6Inside() {
 
+        var atlantaSitesText = $("<p class= 'stage6P'> For more ideas of fun Atlanta activities and events, checkout: &nbsp <a class='stage6A' href= 'http://www.atlanta.net/things-to-do/' target='_blank'>Atlanta.net</a>, <a class='stage6A' href= 'https://www.tripadvisor.com/Attractions-g60898-Activities-Atlanta_Georgia.html' target='_blank'>Trip Advisor-Atlanta</a>, and <a class='stage6A' href = 'http://www.creativeloafing.com/' target='_blank'>Creative Loafing</a>.  &nbsp &nbsp If you don't want to go alone, invite a friend or check out this <a class='stage6A' href= 'https://www.top10bestdatingsites.com/comparison?utm_source=google&kw=dating%20websites&c=230866384789&t=search&p=&m=e&adpos=1t1&dev=c&devmod=&mobval=0&network=g&campaignid=1000974868&adgroupid=48284230246&targetid=kwd-92276993&interest=&physical=9010934&feedid=&a=1&ts=&topic=&gender=&age=&agerange=&gclid=EAIaIQobChMI6MLgxpH71wIVg4uzCh2jgASNEAAYASAAEgKFivD_BwE' target='_blank'>review </a> of the top 10 dating websites.</p>");
+        var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
+        var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + recipeName2 + "&nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
+        var column1 = $("<div id='container7'><div class='BoxIndex'>");
+        //    var stage6Image = $("<img>").attr("src", "assets/images/winning.JPEG");
+        //    $(stage6Image).attr("id", "stage6img");
+
+        $("#dynamicdiv").empty();
+        $(column1).append(text);
+        $(column1).append(text2);
+        $(column1).append(atlantaSitesText);
+        //   $(column1).append(bodydynamic);
+        //   $(column1).append(stage6Image);
+
+        $("#dynamicdiv").append(column1);
+
+        var friday = new Audio("assets/fridaynight.mp3");
+        friday.play();
+
+        makeitflash();
+
+    }
+
+    $(document).on("click", "#submit8", function acceptThis() {
+        stage6Inside();
+
+    });
 
 }); // closes document ready
