@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-
     //These search terms are here because I need to be able to access across functions.
     var restaurantName = " ";
     var restaurantLink = " ";
+    var restaurantLink2;
     var restaurantPic = " ";
     var randomActivity = " ";
     var restaurantName2 = " ";
@@ -17,6 +17,7 @@ $(document).ready(function() {
     var recipeName = ""
     var recipePic = ""
     var recipeLink = ""
+    var recipeLink2;
     var insideresults = ""
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
@@ -26,7 +27,6 @@ $(document).ready(function() {
     var americanFood = [];
     var lazy = [];
     var diet = [];
-
 
 
     $("#letsgo").on("click", function(event) {
@@ -91,12 +91,10 @@ $(document).ready(function() {
             $("#generateflash").fadeIn(500);
         }
 
-        //I ADDED BELOW FOR THE YOU WIN TAG in Stage6
         for (var i = 0; i < 60; i++) {
             $("#generateflash2").fadeOut(500);
             $("#generateflash2").fadeIn(500);
         }
-
     }
 
     //This is the function to dynamically create elements for stageThreeOutside
@@ -109,8 +107,6 @@ $(document).ready(function() {
         var formDiet = $("<div id='container2'><div class='BoxIndex'><div class='row'><div class='col-md-12'><fieldset class = 'form-group row'><p class='stage3P'>Are you on a diet?</p><img class='cities' id='diet' src='assets/images/diet.jpg' alt= 'man on a diet'><div class = 'form-check'><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios1' value='option1'> Yes </input><label id='method' class='form-check-label'><input class='form-check-input' type='radio' name='gridRadiosNew2' id='gridRadios2' value='option2'> No </input>");
         var submit = ("<div id='container3'><div class='BoxIndex'><div class='row'><div class='col-md-12'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit3'>Place My Bet</button>");
         var formCuisine = $("<div id='container1'><div class='BoxIndex'><div class='row'><div class='col-md-12'><fieldset class='form-group row'><p class='stage3P'> Where do you want to visit?</p><div class ='form-check'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='option1'>New Orleans</input><img class= 'cities' id='NewOrleans' src= 'assets/images/nola.jpg' alt='Photo of New Orleans'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='option2'>New York City</input> <img class= 'cities' id='NYC' src= 'assets/images/nyc.jpg' alt='Photo of New York City'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios3' value='option3'> New England </input><img class= 'cities' id='NewEngland' src= 'assets/images/new-england.jpg' alt='Photo of New England'><label class='form-check-label'><input class='form-check-input' type='radio' name='gridRadios' id='gridRadios4' value='option4'>New Mexico </input><img class= 'cities' id='NewMexico' src= 'assets/images/new-mexico.jpg' alt='Photo of New Mexico'>");
-
-
 
         $("#dynamicdiv").html(formCuisine);
         $("#dynamicdiv").append(formFeeling);
@@ -129,11 +125,6 @@ $(document).ready(function() {
         $(generateLogo).text("Generating Experience");
         $(stage4div).append(generateLogo);
 
-
-        //I added below to see if we could trigger the final phase.  We will need to think of a way to trigger
-        //         var submit =("<div class=BoxIndex><div class='form-group row'><div class='col-md-12'><button type='submit' class='btn btn-primary' id='submit4'>Submit</button>"); 
-        //         $(stage4div).append(submit);
-
         makeitflash();
 
         var spin = new Audio("assets/spinsound.mp3");
@@ -143,7 +134,6 @@ $(document).ready(function() {
             setTimeout(stage5Out, 5000);
         } else {
             setTimeout(stage5In, 5000);
-
         }
     }
 
@@ -193,14 +183,12 @@ $(document).ready(function() {
     function generateOutsideActivity() {
 
         randomActivity = Math.floor(Math.random() * (outsideActivityArray.length));
-        console.log(randomActivity);
     }
 
 
     function generateInsideActivity() {
 
         randomActivity = Math.floor(Math.random() * (insideActivityArray.length));
-        console.log(randomActivity);
     }
 
 
@@ -273,6 +261,7 @@ $(document).ready(function() {
                 console.log(random);
                 restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
                 restaurantName2 = results.restaurants[random].name;
+                restaurantLink2 = results.restaurants[random].url;
 
                 restaurantPic = $("<img id='restaurantImg'>")
                 restaurantPic.addClass("image");
@@ -305,36 +294,29 @@ $(document).ready(function() {
         if (button2Checked) {
             cuisineMethod.pop();
         }
-
     }
 
     function generateInside() {
-
-        
 
         // Question 1.
         var questionOne = $("input[name=gridRadios]:checked").val();
 
         if (questionOne === "option1") {
-            console.log("NO");
             var cityChoice = "gumbo";
             (americanFood).push(cityChoice);
         }
 
         if (questionOne === "option2") {
-            console.log("NYC");
             var cityChoice = "pizza";
             (americanFood).push(cityChoice);
         }
 
         if (questionOne === "option3") {
-            console.log("NE");
             var cityChoice = "new%20england%20clam%20chowder";
             (americanFood).push(cityChoice);
         }
 
         if (questionOne === "option4") {
-            console.log("NM")
             var cityChoice = "tacos";
             (americanFood).push(cityChoice);
         }
@@ -344,13 +326,11 @@ $(document).ready(function() {
         var questionTwo = $("input[name=gridRadiosNew]:checked").val();
 
         if (questionTwo === "option1") {
-            console.log("lazy");
             var lazyChoice = "&ingr=9";
             (lazy).push(lazyChoice);
         }
 
         if (questionTwo === "option2") {
-            console.log("adventurous");
             var lazyChoice = "&ingr=22";
             (lazy).push(lazyChoice);
         }
@@ -359,20 +339,17 @@ $(document).ready(function() {
         var questionThree = $("input[name=gridRadiosNew2]:checked").val();
 
         if (questionThree === "option1") {
-            console.log("diet");
             var onaDiet = "&calories=lte300";
             (diet).push(onaDiet);
         }
 
         if (questionThree === "option2") {
-            console.log("not on a diet");
             var onaDiet = "&calories=gte800";
             (diet).push(onaDiet);
         }
 
         var queryUrl = "https://api.edamam.com/search?q=" + americanFood[0] + lazy[0] + diet[0] + "&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-        //var queryUrl = "https://api.edamam.com/search?q=pizza&ingr=5&app_id=641d509e&app_key=1bf7c6fa834ae65103997be33a7be076"
-
+        
 
         // User validation 
         if (questionOne === "option1" || questionOne === "option2" || questionOne === "option3" || questionOne === "option4") {
@@ -398,12 +375,6 @@ $(document).ready(function() {
                 insideresults = res
                 var random = Math.floor(Math.random() * (insideresults.hits.length));
 
-                console.log(insideresults);
-
-                //console.log(res.hits[random].recipe.label);
-                //console.log(res.hits[random].recipe.image);
-                //console.log(res.hits[random].recipe.url);
-
                 recipeName = $("<p id='recipeName'>").text(insideresults.hits[random].recipe.label);
                 recipeName2 = insideresults.hits[random].recipe.label;
                 recipePic = $("<img id='recipeImg'>");
@@ -412,28 +383,22 @@ $(document).ready(function() {
                 recipeLink = $("<a>");
                 recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Recipe");
                 recipeLink.attr("target", "_blank");
+                recipeLink2 = insideresults.hits[random].recipe.url;
             });
+
             generateInsideActivity();
 
         } else {
 
-           $("#alertChoice").empty();
-           $(itemdiv).html(alertdiv1);
-         
+            $("#alertChoice").empty();
+            $(itemdiv).html(alertdiv1);
             $("#container3").prepend(itemdiv);
 
             for (var i = 0; i < 1; i++) {
                 $("#pAlert").fadeOut(500);
                 $("#pAlert").fadeIn(500);
             }
-
-            
         }
-
-
-
-
- //           
 
 
         if (button1Checked) {
@@ -447,17 +412,15 @@ $(document).ready(function() {
         if (button3Checked) {
             diet.pop();
         }
-
     }
 
-    function stage5Out() {
 
+    function stage5Out() {
+console.log(restaurantLink);
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
-        //I added a new button here.  We need to do the same thing for Inside.
         var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Double down!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold!</button><button type='submit' class='btn btn-primary' id='submit7'>Cash in my chips!</button>");
         var row3 = $("<div id='container6'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div3'>");
-
 
         $("#dynamicdiv").append(row1);
         $("#dynamicdiv").append(row2);
@@ -512,7 +475,6 @@ $(document).ready(function() {
         $("#stage5div1").append(text2);
 
 
-
         // Following Code creates the table
 
         table = $("<table class='table'><thead><tr><th>Restaurant & website</th><th>Activity</th><tbody id='headrow'><tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
@@ -534,53 +496,54 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit5", function newExperience() {
 
-        
+
         if (outsideOrInside === "outside") {
             addNewExperience();
         } else {
             addNewInsideExp();
         }
-    
+
     });
 
     function addNewExperience() {
-            $("#stage5div1").empty();
+        $("#stage5div1").empty();
 
-            var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
+        var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
-            generateOutsideActivity();
-            activityPic = $("<img id='activityImg'>");
-            activityPic.addClass("image");
-            activityPic.attr("src", outsideActivityArray[randomActivity].url);
-            activityName = $("<p id='resultName'>").text(outsideActivityArray[randomActivity].name);
+        generateOutsideActivity();
+        activityPic = $("<img id='activityImg'>");
+        activityPic.addClass("image");
+        activityPic.attr("src", outsideActivityArray[randomActivity].url);
+        activityName = $("<p id='resultName'>").text(outsideActivityArray[randomActivity].name);
 
-            var random = Math.floor(Math.random() * (results.restaurants.length));
-            console.log(random);
-            restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
-            restaurantName2 = results.restaurants[random].name;
-            restaurantPic = $("<img id='restaurantImg'>")
-            restaurantPic.addClass("image");
-            restaurantPic.attr("src", results.restaurants[random].logoUrl);
-            restaurantLink = $("<a>");
-            restaurantLink.attr("href", results.restaurants[random].url).append("Restaurant Info");
+        var random = Math.floor(Math.random() * (results.restaurants.length));
+        restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
+        restaurantName2 = results.restaurants[random].name;
+        restaurantPic = $("<img id='restaurantImg'>")
+        restaurantPic.addClass("image");
+        restaurantPic.attr("src", results.restaurants[random].logoUrl);
+        restaurantLink = $("<a>");
+        restaurantLink.attr("href", results.restaurants[random].url).append("Restaurant Info");
+        restaurantLink2 = results.restaurants[random].url;
 
-            $("#headrow").prepend(tableAddRow);
-            $("#original").append(restaurantName);
-            $("#original").append(restaurantPic);
-            $("#original").append(restaurantLink);
-            $("#original4").append(activityName);
-            $("#original4").append(activityPic);
+        $("#headrow").prepend(tableAddRow);
+        $("#original").append(restaurantName);
+        $("#original").append(restaurantPic);
+        $("#original").append(restaurantLink);
+        $("#original4").append(activityName);
+        $("#original4").append(activityPic);
 
-            if (pickupDineIn === "pickup") {
-                var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
-            } else {
-                var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
-                var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
-            }
-            $("#stage5div1").append(text);
-            $("#stage5div1").append(text2);
+        if (pickupDineIn === "pickup") {
+            var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
+            var text2 = $("<p id='desc'> First, you will visit " + restaurantName2 + ".&nbsp &nbsp Because you are always on the go, you will take your food to-go and enjoy at the local park.&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
+        } else {
+            var text = $("<p id='stage5P'>Here is a different option for a fun evening!</p>");
+            var text2 = $("<p id='desc'> First, you will enjoy a leisurely dinner at " + restaurantName2 + " .&nbsp &nbsp After you finish your delicious meal, you will " + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         }
+
+        $("#stage5div1").append(text);
+        $("#stage5div1").append(text2);
+    }
 
     function addNewInsideExp() {
         $("#stage5div1").empty();
@@ -602,6 +565,7 @@ $(document).ready(function() {
         recipePic.attr("src", insideresults.hits[random].recipe.image);
         recipeLink = $("<a>");
         recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Recipe");
+        recipeLink2 = insideresults.hits[random].recipe.url;
 
         $("#headrow").prepend(tableAddRow);
         $("#original").append(recipeName);
@@ -610,15 +574,12 @@ $(document).ready(function() {
         $("#original4").append(activityName);
         $("#original4").append(activityPic);
 
-        // id names...
-
         var text = $("<p id='stage5Pin'>Here's a different option!</p>");
         var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". &nbsp &nbsp After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
     } //closes addNeInsideExperience.
 
-    
 
     function refresh() {
         restaurantName = " ";
@@ -634,6 +595,7 @@ $(document).ready(function() {
         table;
     }
 
+
     $(document).on("click", "#submit6", function newExperience() {
         refresh();
         stage2();
@@ -645,7 +607,7 @@ $(document).ready(function() {
 
         var atlantaSitesText = $("<p class= 'stage6P'> For more ideas of fun Atlanta activities and events, checkout: &nbsp <a class='stage6A' href= 'http://www.atlanta.net/things-to-do/' target='_blank'>Atlanta.net</a>, <a class='stage6A' href= 'https://www.tripadvisor.com/Attractions-g60898-Activities-Atlanta_Georgia.html' target='_blank'>Trip Advisor-Atlanta</a>, and <a class='stage6A' href = 'http://www.creativeloafing.com/' target='_blank'>Creative Loafing</a>.  &nbsp &nbsp If you don't want to go alone, invite a friend or check out this <a class='stage6A' href= 'https://www.top10bestdatingsites.com/comparison?utm_source=google&kw=dating%20websites&c=230866384789&t=search&p=&m=e&adpos=1t1&dev=c&devmod=&mobval=0&network=g&campaignid=1000974868&adgroupid=48284230246&targetid=kwd-92276993&interest=&physical=9010934&feedid=&a=1&ts=&topic=&gender=&age=&agerange=&gclid=EAIaIQobChMI6MLgxpH71wIVg4uzCh2jgASNEAAYASAAEgKFivD_BwE' target='_blank'>review </a> of the top 10 dating websites.</p>");
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
-        var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + restaurantName2 + "&nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
+        var text2 = $("<p class='desc6P'> Get glammed up to enjoy a delicious dinner at " + "<a class='stage6A' href=" + restaurantLink2 + " target='_blank'>" + restaurantName2 + "</a> &nbsp and to &nbsp" + outsideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
@@ -674,17 +636,19 @@ $(document).ready(function() {
         });
 
     }
+
 
     $(document).on("click", "#submit7", function acceptThis() {
         stage6Outside();
 
     });
 
+
     function stage6Inside() {
 
         var atlantaSitesText = $("<p class= 'stage6P'> For more ideas of fun Atlanta activities and events, checkout: &nbsp <a class='stage6A' href= 'http://www.atlanta.net/things-to-do/' target='_blank'>Atlanta.net</a>, <a class='stage6A' href= 'https://www.tripadvisor.com/Attractions-g60898-Activities-Atlanta_Georgia.html' target='_blank'>Trip Advisor-Atlanta</a>, and <a class='stage6A' href = 'http://www.creativeloafing.com/' target='_blank'>Creative Loafing</a>.  &nbsp &nbsp If you don't want to go alone, invite a friend or check out this <a class='stage6A' href= 'https://www.top10bestdatingsites.com/comparison?utm_source=google&kw=dating%20websites&c=230866384789&t=search&p=&m=e&adpos=1t1&dev=c&devmod=&mobval=0&network=g&campaignid=1000974868&adgroupid=48284230246&targetid=kwd-92276993&interest=&physical=9010934&feedid=&a=1&ts=&topic=&gender=&age=&agerange=&gclid=EAIaIQobChMI6MLgxpH71wIVg4uzCh2jgASNEAAYASAAEgKFivD_BwE' target='_blank'>review </a> of the top 10 dating websites.</p>");
         var text = $("<div id = 'generateflash2' id=stage6P2>You win!</div>");
-        var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + recipeName2 + "&nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
+        var text2 = $("<p class='desc6P'> Put on your pajama pants and get ready to cook " + "<a class='stage6A' href=" + recipeLink2 + " target='_blank'>" + recipeName2 + "</a> &nbsp and to &nbsp" + insideActivityArray[randomActivity].desc + "&nbsp &nbsp Thank you for taking a chance on a fun Friday night!</p>");
         var column1 = $("<div id='container7'><div class='BoxIndex'>");
         var buttonStartOver = $("<div id='container8'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage6b'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit9'>Play Again!</button>");
         var text3 = $("<div class='text-center'><button class='btn btn-warning btn-xs' id= 'theme-button'><span class='glyphicon glyphicon-music'></span> Play music!</button><button class='btn btn-default btn-xs' id='pause'><span class='glyphicon glyphicon-pause'></span> Pause music!</button></div>");
@@ -714,10 +678,12 @@ $(document).ready(function() {
 
     }
 
+
     $(document).on("click", "#submit8", function(event) {
         stage6Inside();
 
     });
+
 
     $(document).on("click", "#submit9", function(event) {
         friday.pause();
