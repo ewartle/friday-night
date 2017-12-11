@@ -506,7 +506,7 @@ $(document).ready(function() {
         $("#dynamicdiv").append(row3);
 
         var text = $("<p id='stage5Pin'>Let's stay in and cook!</p>");
-        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". &nbsp &nbsp After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
 
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
@@ -613,12 +613,12 @@ $(document).ready(function() {
         // id names...
 
         var text = $("<p id='stage5Pin'>Here's a different option!</p>");
-        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "Thank you for taking a chance on a fun Friday night.  Enjoy!</p>");
+        var text2 = $("<p id='desc-in'> First, let's cook " + recipeName2 + ". &nbsp &nbsp After you finish your delicious meal, you will " + insideActivityArray[randomActivity].desc + "&nbsp &nbsp If this sounds like the Friday night for you, cash in your chips and go!  &nbsp &nbsp Otherwise, double down for a new experience or fold and start over.</p>");
         $("#stage5div1").append(text);
         $("#stage5div1").append(text2);
     } //closes addNeInsideExperience.
 
-    S
+    
 
     function refresh() {
         restaurantName = " ";
