@@ -255,10 +255,8 @@ $(document).ready(function() {
             }).done(function(response) {
 
                 results = response
-                console.log(results);
                 var i = results.restaurants.length;
                 var random = Math.floor(Math.random() * (i))
-                console.log(random);
                 restaurantName = $("<p id='resultName'>").text(results.restaurants[random].name);
                 restaurantName2 = results.restaurants[random].name;
                 restaurantLink2 = results.restaurants[random].url;
@@ -416,7 +414,6 @@ $(document).ready(function() {
 
 
     function stage5Out() {
-console.log(restaurantLink);
         $("#dynamicdiv").empty();
         var row1 = $("<div id='container4'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div1'>");
         var row2 = $("<div id='container5'><div class='BoxIndex'><div class = '<div class = row><div class ='col-md-12' id='stage5div2'><div class='form-group row'><button type='submit' class='btn btn-primary' id='submit5'>Double down!</button><button type='submit' class='btn btn-primary' id='submit6'>Fold!</button><button type='submit' class='btn btn-primary' id='submit7'>Cash in my chips!</button>");
