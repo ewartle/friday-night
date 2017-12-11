@@ -22,6 +22,10 @@ $(document).ready(function() {
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var recipeName2;
     var friday;
+    var alertdiv1 = $("<p id='pAlert'>You must answer every question to proceed!</p>");
+    var americanFood = [];
+    var lazy = [];
+    var diet = [];
 
 
 
@@ -306,9 +310,7 @@ $(document).ready(function() {
 
     function generateInside() {
 
-        americanFood = [];
-        lazy = [];
-        diet = [];
+        
 
         // Question 1.
         var questionOne = $("input[name=gridRadios]:checked").val();
@@ -415,14 +417,24 @@ $(document).ready(function() {
 
         } else {
 
-            var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
-            $("#container1").append(alertdiv);
+           $("#alertChoice").empty();
+           $(itemdiv).html(alertdiv1);
+         
+            $("#container3").prepend(itemdiv);
 
             for (var i = 0; i < 1; i++) {
                 $("#pAlert").fadeOut(500);
                 $("#pAlert").fadeIn(500);
             }
+
+            
         }
+
+
+
+
+ //           
+
 
         if (button1Checked) {
             americanFood.pop();
@@ -520,7 +532,16 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit5", function newExperience() {
 
-        function addNewExperience() {
+        
+        if (outsideOrInside === "outside") {
+            addNewExperience();
+        } else {
+            addNewInsideExp();
+        }
+    
+    });
+
+    function addNewExperience() {
             $("#stage5div1").empty();
 
             var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
@@ -558,14 +579,6 @@ $(document).ready(function() {
             $("#stage5div1").append(text);
             $("#stage5div1").append(text2);
         }
-
-        if (outsideOrInside === "outside") {
-            addNewExperience();
-        } else {
-            addNewInsideExp();
-        }
-    });
-
 
     function addNewInsideExp() {
 
