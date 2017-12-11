@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
     var restaurantName = " ";
     var restaurantLink = " ";
     var restaurantLink2;
@@ -21,15 +21,40 @@ $(document).ready(function() {
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var recipeName2;
-    var friday;
+    // var friday;
     var alertdiv1 = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var americanFood = [];
     var lazy = [];
     var diet = [];
+    var casino;
+    var bounce;
+    var fold;
+    var spin;
+
+
+    function bounce() {
+
+        bounce = new Audio("assets/bounce.mp3");
+        bounce.play();
+        bounce.currentTime = 3;
+
+        $("#pause1").on("click", function() {
+            bounce.pause();
+        });
+
+        $("#theme-button1").on("click", function() {
+            bounce.play();
+            bounce.currentTime = 3;
+        });
+
+    }
+
+    bounce();
 
     $("#letsgo").on("click", function(event) {
 
         stage2();
+        bounce.pause();
     })
 
     function stage2() {
@@ -123,7 +148,7 @@ $(document).ready(function() {
 
         makeitflash();
 
-        var spin = new Audio("assets/spinsound.mp3");
+        spin = new Audio("assets/spinsound.mp3");
         spin.play();
 
         if (outsideOrInside === "outside") {
@@ -482,8 +507,10 @@ $(document).ready(function() {
 
         if (outsideOrInside === "outside") {
             addNewExperience();
+            
         } else {
             addNewInsideExp();
+            
         }
 
     });
@@ -495,7 +522,7 @@ $(document).ready(function() {
         var tableAddRow = $("<tr><td class='main' id='original'></td><td class='main' id='original4'></td>");
 
         generateOutsideActivity();
-      
+
         activityPic = $("<img id='activityImg'>");
         activityPic.addClass("image");
         activityPic.attr("src", outsideActivityArray[randomActivity].url);
@@ -530,7 +557,7 @@ $(document).ready(function() {
         $("#stage5div1").append(text2);
     }
 
-        function addNewInsideExp() {
+    function addNewInsideExp() {
 
         $("#stage5div1").empty();
 
@@ -588,7 +615,10 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit6", function newExperience() {
         refresh();
-        stage2();
+        setTimeout(stage2, 3500);
+        fold = new Audio("assets/fail.mp3");
+        fold.play();
+
 
     });
 
@@ -610,24 +640,32 @@ $(document).ready(function() {
 
         $("#dynamicdiv").append(column1);
 
-        friday = new Audio("assets/fridaynight.mp3");
-        friday.play();
-        friday.currentTime = 36.5;
+        // friday = new Audio("assets/fridaynight.mp3");
+        // friday.play();
+        // friday.currentTime = 36.5;
 
         makeitflash();
 
         $("#pause").on("click", function() {
-            friday.pause();
+            //     friday.pause();
+            casino.pause();
         });
         $("#theme-button").on("click", function() {
-            friday.play();
+            //      friday.play();
+            casino.play();
+            casino.currentTime = 5;
         });
 
     }
 
     $(document).on("click", "#submit7", function acceptThis() {
 
+        casino = new Audio("assets/casino.mp3");
+        casino.play();
+        casino.currentTime = 4.75;
+
         stage6Outside();
+
 
     });
 
@@ -649,33 +687,44 @@ $(document).ready(function() {
 
         $("#dynamicdiv").append(column1);
 
-        friday = new Audio("assets/fridaynight.mp3");
-        friday.play();
-        friday.currentTime = 36.5;
+        //friday = new Audio("assets/fridaynight.mp3");
+        // friday.play();
+        // friday.currentTime = 36.5;
+
+
 
         makeitflash();
 
         $("#pause").on("click", function() {
-            friday.pause();
+            //friday.pause();
+            casino.pause();
         });
         $("#theme-button").on("click", function() {
-            friday.play();
+            //friday.play();
+            casino.play();
+            casino.currentTime = 4.75;
+
         });
 
     }
 
     $(document).on("click", "#submit8", function(event) {
 
+        casino = new Audio("assets/casino.mp3");
+        casino.play();
+        casino.currentTime = 5;
+
         stage6Inside();
+
 
     });
 
 
     $(document).on("click", "#submit9", function(event) {
 
-        friday.pause();
+        //friday.pause();
         stage2();
-
+        casino.pause();
     });
 
 });
