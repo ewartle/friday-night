@@ -21,6 +21,7 @@ $(document).ready(function() {
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var recipeName2;
+    var friday;
 
 
 
@@ -635,7 +636,7 @@ $(document).ready(function() {
 
         $("#dynamicdiv").append(column1);
 
-        var friday = new Audio("assets/fridaynight.mp3");
+        friday = new Audio("assets/fridaynight.mp3");
         friday.play();
         friday.currentTime = 36.5;
 
@@ -674,7 +675,7 @@ function stage6Inside() {
 
         $("#dynamicdiv").append(column1);
 
-        var friday = new Audio("assets/fridaynight.mp3");
+        friday = new Audio("assets/fridaynight.mp3");
         friday.play();
         friday.currentTime = 36.5;
 
@@ -695,6 +696,7 @@ function stage6Inside() {
     });
 
     $(document).on("click", "#submit9", function (event) {
+        friday.pause();
         stage2();
 
     });
