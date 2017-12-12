@@ -21,14 +21,12 @@ $(document).ready(function() {
     var itemdiv = $("<div id='alertChoice'>");
     var alertdiv = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var recipeName2;
-    // var friday;
     var alertdiv1 = $("<p id='pAlert'>You must answer every question to proceed!</p>");
     var americanFood = [];
     var lazy = [];
     var diet = [];
     var casino;
     var bounce;
-    var fold;
     var spin;
 
 
@@ -507,10 +505,10 @@ $(document).ready(function() {
 
         if (outsideOrInside === "outside") {
             addNewExperience();
-            
+
         } else {
             addNewInsideExp();
-            
+
         }
 
     });
@@ -537,6 +535,7 @@ $(document).ready(function() {
         restaurantPic.attr("src", results.restaurants[random].logoUrl);
         restaurantLink = $("<a>");
         restaurantLink.attr("href", results.restaurants[random].url).append("Restaurant Info");
+        restaurantLink.attr("target", "_blank");
         restaurantLink2 = results.restaurants[random].url;
 
         $("#headrow").prepend(tableAddRow);
@@ -579,6 +578,7 @@ $(document).ready(function() {
         recipePic.attr("src", insideresults.hits[random].recipe.image);
         recipeLink = $("<a>");
         recipeLink.attr("href", insideresults.hits[random].recipe.url).append("Recipe");
+        recipeLink.attr("target", "_blank");
         recipeLink2 = insideresults.hits[random].recipe.url;
 
         $("#headrow").prepend(tableAddRow);
@@ -615,9 +615,8 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit6", function newExperience() {
         refresh();
-        setTimeout(stage2, 3500);
-        fold = new Audio("assets/fail.mp3");
-        fold.play();
+        stage2();
+
 
 
     });
@@ -640,18 +639,12 @@ $(document).ready(function() {
 
         $("#dynamicdiv").append(column1);
 
-        // friday = new Audio("assets/fridaynight.mp3");
-        // friday.play();
-        // friday.currentTime = 36.5;
-
         makeitflash();
 
         $("#pause").on("click", function() {
-            //     friday.pause();
             casino.pause();
         });
         $("#theme-button").on("click", function() {
-            //      friday.play();
             casino.play();
             casino.currentTime = 5;
         });
@@ -687,20 +680,15 @@ $(document).ready(function() {
 
         $("#dynamicdiv").append(column1);
 
-        //friday = new Audio("assets/fridaynight.mp3");
-        // friday.play();
-        // friday.currentTime = 36.5;
-
-
 
         makeitflash();
 
         $("#pause").on("click", function() {
-            //friday.pause();
+
             casino.pause();
         });
         $("#theme-button").on("click", function() {
-            //friday.play();
+
             casino.play();
             casino.currentTime = 4.75;
 
@@ -722,7 +710,6 @@ $(document).ready(function() {
 
     $(document).on("click", "#submit9", function(event) {
 
-        //friday.pause();
         stage2();
         casino.pause();
     });
